@@ -1,0 +1,19 @@
+server:
+  # please don't modify it if you don't know what you are doing
+  port: ${PORT:8080}
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/IMovie
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  #  flyway:
+#    baseline-on-migrate: true
+
+  thymeleaf:
+    mode: HTML
