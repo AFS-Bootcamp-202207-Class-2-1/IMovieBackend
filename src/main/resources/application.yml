@@ -1,10 +1,10 @@
 server:
   # please don't modify it if you don't know what you are doing
-  port: ${PORT:8080}
+  port: ${PORT:8082}
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/IMovie
+    url: jdbc:postgresql://localhost:5432/iMovie
     hikari:
       connection-timeout: 30000
       maximum-pool-size: 10
