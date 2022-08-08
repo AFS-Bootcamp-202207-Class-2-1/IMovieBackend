@@ -19,7 +19,7 @@ public class CinemaMovieTimeService {
     @Autowired
     CinemaMovieTimeRepository cinemaMovieTimeRepository;
 
-    public List<CinemaMovieTime> getCinemaMovieTimeByMovieId(Integer movie_id) {
+    public List<CinemaMovieTime> getCinemaMovieTimeListByMovieId(Integer movie_id) {
         List<CinemaMovie> cinemaMovieList = cinemaMovieRepository.findByMovie_id(movie_id);
         List<CinemaMovieTime> cinemaMovieTimeList = new ArrayList<>();
         for (CinemaMovie cinemaMovie : cinemaMovieList) {
