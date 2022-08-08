@@ -18,9 +18,9 @@ public class Seat {
     private Integer cinema_id;
     private Integer user_id;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "seat_id")
-    private List<Ticket> tickets;
+    private Ticket ticket;
 
     public Seat() {
     }
@@ -43,7 +43,7 @@ public class Seat {
         this.seat_reserve = seat_reserve;
     }
 
-    public Seat(Integer seat_id, String seat_name, Integer seat_row, Integer seat_col, Boolean seat_reserve, Integer cinema_id, Integer user_id, List<Ticket> tickets) {
+    public Seat(Integer seat_id, String seat_name, Integer seat_row, Integer seat_col, Boolean seat_reserve, Integer cinema_id, Integer user_id, Ticket ticket) {
         this.seat_id = seat_id;
         this.seat_name = seat_name;
         this.seat_row = seat_row;
@@ -51,7 +51,7 @@ public class Seat {
         this.seat_reserve = seat_reserve;
         this.cinema_id = cinema_id;
         this.user_id = user_id;
-        this.tickets = tickets;
+        this.ticket = ticket;
     }
 
     public Integer getSeat_id() {
@@ -110,12 +110,11 @@ public class Seat {
         this.seat_reserve = seat_reserve;
     }
 
-    public List<Ticket> getTickets() {
-        return tickets;
+    public Ticket getTicket() {
+        return ticket;
     }
 
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
-
 }
