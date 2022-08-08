@@ -4,7 +4,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/IMovie
+    url: jdbc:postgresql://localhost:5433/IMovie
     hikari:
       connection-timeout: 30000
       maximum-pool-size: 10
