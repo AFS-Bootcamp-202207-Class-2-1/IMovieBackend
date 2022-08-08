@@ -18,10 +18,9 @@ public class UsersController {
     UsersService usersService;
 
 
-    @PostMapping
+    @PostMapping("register")
     public String doRegister(@RequestBody Users users){
-        System.out.println("................................");
-        System.out.println(users);
+
         return usersService.doRegister(users);
 
     }

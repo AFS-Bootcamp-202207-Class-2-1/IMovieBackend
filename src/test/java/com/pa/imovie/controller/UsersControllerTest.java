@@ -49,7 +49,7 @@ public class UsersControllerTest {
         Users users = new Users(null,"wade","abc","male");
         String usersJson = new ObjectMapper().writeValueAsString(users);
 
-        client.perform(MockMvcRequestBuilders.post("/users")
+        client.perform(MockMvcRequestBuilders.post("/users/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isOk())
@@ -72,7 +72,7 @@ public class UsersControllerTest {
 
         String usersJson = new ObjectMapper().writeValueAsString(users);
 
-        client.perform(MockMvcRequestBuilders.post("/users")
+        client.perform(MockMvcRequestBuilders.post("/users/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isOk())
