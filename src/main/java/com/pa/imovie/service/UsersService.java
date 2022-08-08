@@ -11,11 +11,18 @@ public class UsersService {
     @Autowired
     UsersRepository usersRepository;
 
-    public Users add(Users users) {
-        return usersRepository.save(users);
-    }
 
-    public Users findUserByUsername(String users_name){
-        return usersRepository.findByUsers_name(users_name);
+    public String doRegister(Users users){
+        String usersName = users.getUsers_name();
+        String password = users.getUsers_password();
+        Users user = usersRepository.findUsersByUsers_nameAndUsers_password(usersName,password);
+        String msg = "";
+        if (user == null){
+            usersRepository.save(users);
+            msg = "registered successfully";
+            return msg;
+        }
+        msg = "the user alrealy exists";
+        return msg;
     }
 }

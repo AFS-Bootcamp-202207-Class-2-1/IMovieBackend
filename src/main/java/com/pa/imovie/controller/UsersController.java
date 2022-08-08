@@ -15,19 +15,21 @@ public class UsersController {
     @Autowired
     private UsersService usersService;
 
-    @PostMapping
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public String register(@RequestBody Users users){
-        String usersName = users.getUsers_name();
-        Users findUser = usersService.findUserByUsername(usersName);
-        String msg = "";
-        if (findUser == null){
-            usersService.add(users);
-            msg = "registered successfully";
-            return msg;
-        }
-        msg = "the user alrealy exists";
-        return msg;
+    public String doRegister(@RequestBody Users users){
+//        String usersName = users.getUsers_name();
+//        Users findUser = usersService.findUserByUsername(usersName);
+//        String msg = "";
+//        if (findUser == null){
+//            usersService.add(users);
+//            msg = "registered successfully";
+//            return msg;
+//        }
+//        msg = "the user alrealy exists";
+//        return msg;
+        return usersService.doRegister(users);
+
     }
 
 }
