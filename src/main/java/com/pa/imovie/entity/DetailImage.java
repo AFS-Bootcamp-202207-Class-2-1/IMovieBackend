@@ -9,7 +9,7 @@ public class DetailImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "detailImage_id", nullable = false)
     private Integer detailImage_id;
-    private Integer detailImage_name;
+    private String detailImage_name;
     private String detailImage_url;
 
     private Integer movie_id;
@@ -17,13 +17,13 @@ public class DetailImage {
     public DetailImage() {
     }
 
-    public DetailImage(Integer detailImage_id, Integer detailImage_name, String detailImage_url) {
+    public DetailImage(Integer detailImage_id, String detailImage_name, String detailImage_url) {
         this.detailImage_id = detailImage_id;
         this.detailImage_name = detailImage_name;
         this.detailImage_url = detailImage_url;
     }
 
-    public DetailImage(Integer detailImage_id, Integer detailImage_name, String detailImage_url, Integer movie_id) {
+    public DetailImage(Integer detailImage_id, String detailImage_name, String detailImage_url, Integer movie_id) {
         this.detailImage_id = detailImage_id;
         this.detailImage_name = detailImage_name;
         this.detailImage_url = detailImage_url;
@@ -38,11 +38,11 @@ public class DetailImage {
         this.detailImage_id = detailImage_id;
     }
 
-    public Integer getDetailImage_name() {
+    public String getDetailImage_name() {
         return detailImage_name;
     }
 
-    public void setDetailImage_name(Integer detailImage_name) {
+    public void setDetailImage_name(String detailImage_name) {
         this.detailImage_name = detailImage_name;
     }
 

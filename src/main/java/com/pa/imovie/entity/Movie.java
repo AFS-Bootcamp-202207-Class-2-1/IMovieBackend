@@ -28,10 +28,6 @@ public class Movie {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "movie_id")
-    private List<BannerImage> bannerImages;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "movie_id")
     private List<DetailImage> detailImages;
 
     public Movie() {
@@ -48,7 +44,7 @@ public class Movie {
         this.movie_score = movie_score;
     }
 
-    public Movie(Integer movie_id, String movie_name, String movie_image, String movie_performers, String movie_introduce, String movie_releasetime, Integer movie_time, Double movie_score, List<CinemaMovie> cinemaMovies, List<Ticket> tickets, List<BannerImage> bannerImages, List<DetailImage> detailImages) {
+    public Movie(Integer movie_id, String movie_name, String movie_image, String movie_performers, String movie_introduce, String movie_releasetime, Integer movie_time, Double movie_score, List<CinemaMovie> cinemaMovies, List<Ticket> tickets, List<DetailImage> detailImages) {
         this.movie_id = movie_id;
         this.movie_name = movie_name;
         this.movie_image = movie_image;
@@ -59,7 +55,6 @@ public class Movie {
         this.movie_score = movie_score;
         this.cinemaMovies = cinemaMovies;
         this.tickets = tickets;
-        this.bannerImages = bannerImages;
         this.detailImages = detailImages;
     }
 
@@ -141,14 +136,6 @@ public class Movie {
 
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
-    }
-
-    public List<BannerImage> getBannerImages() {
-        return bannerImages;
-    }
-
-    public void setBannerImages(List<BannerImage> bannerImages) {
-        this.bannerImages = bannerImages;
     }
 
     public List<DetailImage> getDetailImages() {
