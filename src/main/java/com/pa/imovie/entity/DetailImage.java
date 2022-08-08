@@ -30,6 +30,7 @@ public class DetailImage {
         this.movie_id = movie_id;
     }
 
+
     public Integer getDetailImage_id() {
         return detailImage_id;
     }

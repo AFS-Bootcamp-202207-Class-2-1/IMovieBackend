@@ -25,4 +25,7 @@ public class HomePageService {
         });
         return homeMovieInfos;
     }
+    public Movie save(Movie movie){
+        return homePageRepository.save(movie);
+    }
 }
