@@ -1,6 +1,6 @@
 server:
   # please don't modify it if you don't know what you are doing
-  port: ${PORT:8082}
+  port: ${PORT:8083}
 
 spring:
   datasource:
@@ -16,5 +16,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update # disable DB schema creation from entity
+    show-sql: true
   thymeleaf:
     mode: HTML
