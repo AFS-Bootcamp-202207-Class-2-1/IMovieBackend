@@ -12,7 +12,7 @@ spring:
     baseline-on-migrate: true
   jpa:
     hibernate:
-      ddl-auto: none # disable DB schema creation from entity
+      ddl-auto: update # disable DB schema creation from entity
 
   thymeleaf:
     mode: HTML
