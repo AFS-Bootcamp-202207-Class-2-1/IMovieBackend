@@ -12,6 +12,7 @@ public class Movie {
     private Integer movie_id;
     private String movie_name;
     private String movie_image;
+    private String movie_catagory;
     private String movie_performers;
     private String movie_introduce;
     private String movie_releasetime;
@@ -44,10 +45,23 @@ public class Movie {
         this.movie_score = movie_score;
     }
 
-    public Movie(Integer movie_id, String movie_name, String movie_image, String movie_performers, String movie_introduce, String movie_releasetime, Integer movie_time, Double movie_score, List<CinemaMovie> cinemaMovies, List<Ticket> tickets, List<DetailImage> detailImages) {
+    public Movie(Integer movie_id, String movie_name, String movie_image, String movie_catagory, String movie_performers, String movie_introduce, String movie_releasetime, Integer movie_time, Double movie_score) {
         this.movie_id = movie_id;
         this.movie_name = movie_name;
         this.movie_image = movie_image;
+        this.movie_catagory = movie_catagory;
+        this.movie_performers = movie_performers;
+        this.movie_introduce = movie_introduce;
+        this.movie_releasetime = movie_releasetime;
+        this.movie_time = movie_time;
+        this.movie_score = movie_score;
+    }
+
+    public Movie(Integer movie_id, String movie_name, String movie_image, String movie_catagory, String movie_performers, String movie_introduce, String movie_releasetime, Integer movie_time, Double movie_score, List<CinemaMovie> cinemaMovies, List<Ticket> tickets, List<DetailImage> detailImages) {
+        this.movie_id = movie_id;
+        this.movie_name = movie_name;
+        this.movie_image = movie_image;
+        this.movie_catagory = movie_catagory;
         this.movie_performers = movie_performers;
         this.movie_introduce = movie_introduce;
         this.movie_releasetime = movie_releasetime;
@@ -80,6 +94,14 @@ public class Movie {
 
     public void setMovie_image(String movie_image) {
         this.movie_image = movie_image;
+    }
+
+    public String getMovie_catagory() {
+        return movie_catagory;
+    }
+
+    public void setMovie_catagory(String movie_catagory) {
+        this.movie_catagory = movie_catagory;
     }
 
     public String getMovie_performers() {

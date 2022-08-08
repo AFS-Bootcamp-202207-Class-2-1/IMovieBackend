@@ -41,7 +41,7 @@ public class DetailControllerTest {
         DetailImage detailImage01 = new DetailImage(1, "详情图01", "详情图01url");
         DetailImage detailImage02 = new DetailImage(2, "详情图02", "详情图02url");
         List<DetailImage> detailImageList = Arrays.asList(detailImage01, detailImage02);
-        Movie movie = new Movie(2, "电影名字", "图片url", "表演者", "电影介绍", "上映时间", 180, 4d, null, null, detailImageList);
+        Movie movie = new Movie(2, "电影名字", "图片url", "分类01,分类02", "表演者", "电影介绍", "上映时间", 180, 4d, null, null, detailImageList);
         Movie save = movieRepository.save(movie);
         //then
         client.perform(MockMvcRequestBuilders.get("/detail/{movieId}", save.getMovie_id()))
