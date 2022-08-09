@@ -20,10 +20,6 @@ public class Cinema {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cinemaId")
-    private List<Seat> seats;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cinemaId")
     private List<Ticket> tickets;
 
     public Cinema() {
@@ -36,13 +32,12 @@ public class Cinema {
         this.cinemaPhone = cinemaPhone;
     }
 
-    public Cinema(Integer cinemaId, String cinemaName, String cinemaAddress, String cinemaPhone, List<CinemaMovie> cinemaMovies, List<Seat> seats, List<Ticket> tickets) {
+    public Cinema(Integer cinemaId, String cinemaName, String cinemaAddress, String cinemaPhone, List<CinemaMovie> cinemaMovies, List<Ticket> tickets) {
         this.cinemaId = cinemaId;
         this.cinemaName = cinemaName;
         this.cinemaAddress = cinemaAddress;
         this.cinemaPhone = cinemaPhone;
         this.cinemaMovies = cinemaMovies;
-        this.seats = seats;
         this.tickets = tickets;
     }
 
@@ -84,14 +79,6 @@ public class Cinema {
 
     public void setCinemaMovies(List<CinemaMovie> cinemaMovies) {
         this.cinemaMovies = cinemaMovies;
-    }
-
-    public List<Seat> getSeats() {
-        return seats;
-    }
-
-    public void setSeats(List<Seat> seats) {
-        this.seats = seats;
     }
 
     public List<Ticket> getTickets() {

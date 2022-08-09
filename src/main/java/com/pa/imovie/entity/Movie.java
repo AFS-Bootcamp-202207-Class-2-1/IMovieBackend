@@ -16,6 +16,7 @@ public class Movie {
     private String moviePerformers;
     private String movieIntroduce;
     private String movieReleasetime;
+    private String movieVersion;
     private Integer movieTime;
     private Double movieScore;
 
@@ -34,7 +35,7 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(Integer movieId, String movieName, String movieImage, String movieCatagory, String moviePerformers, String movieIntroduce, String movieReleasetime, Integer movieTime, Double movieScore) {
+    public Movie(Integer movieId, String movieName, String movieImage, String movieCatagory, String moviePerformers, String movieIntroduce, String movieReleasetime, String movieVersion, Integer movieTime, Double movieScore) {
         this.movieId = movieId;
         this.movieName = movieName;
         this.movieImage = movieImage;
@@ -42,11 +43,12 @@ public class Movie {
         this.moviePerformers = moviePerformers;
         this.movieIntroduce = movieIntroduce;
         this.movieReleasetime = movieReleasetime;
+        this.movieVersion = movieVersion;
         this.movieTime = movieTime;
         this.movieScore = movieScore;
     }
 
-    public Movie(Integer movieId, String movieName, String movieImage, String movieCatagory, String moviePerformers, String movieIntroduce, String movieReleasetime, Integer movieTime, Double movieScore, List<CinemaMovie> cinemaMovies, List<Ticket> tickets, List<DetailImage> detailImages) {
+    public Movie(Integer movieId, String movieName, String movieImage, String movieCatagory, String moviePerformers, String movieIntroduce, String movieReleasetime, String movieVersion, Integer movieTime, Double movieScore, List<CinemaMovie> cinemaMovies, List<Ticket> tickets, List<DetailImage> detailImages) {
         this.movieId = movieId;
         this.movieName = movieName;
         this.movieImage = movieImage;
@@ -54,6 +56,7 @@ public class Movie {
         this.moviePerformers = moviePerformers;
         this.movieIntroduce = movieIntroduce;
         this.movieReleasetime = movieReleasetime;
+        this.movieVersion = movieVersion;
         this.movieTime = movieTime;
         this.movieScore = movieScore;
         this.cinemaMovies = cinemaMovies;
@@ -115,6 +118,14 @@ public class Movie {
 
     public void setMovieReleasetime(String movieReleasetime) {
         this.movieReleasetime = movieReleasetime;
+    }
+
+    public String getMovieVersion() {
+        return movieVersion;
+    }
+
+    public void setMovieVersion(String movieVersion) {
+        this.movieVersion = movieVersion;
     }
 
     public Integer getMovieTime() {

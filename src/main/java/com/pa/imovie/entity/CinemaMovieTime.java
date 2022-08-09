@@ -20,6 +20,10 @@ public class CinemaMovieTime {
     @JoinColumn(name = "cinemaMovieTimeId")
     private List<Ticket> tickets;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cinemaMovieTimeId")
+    private List<Seat> seats;
+
     public CinemaMovieTime() {
     }
 
@@ -38,13 +42,14 @@ public class CinemaMovieTime {
         this.cinemaMovieId = cinemaMovieId;
     }
 
-    public CinemaMovieTime(Integer cinemaMovieTimeId, String cinemaMovieTimeWatchtime, String cinemaMovieTimeEndtime, Double cinemaMovieTimePrice, Integer cinemaMovieId, List<Ticket> tickets) {
+    public CinemaMovieTime(Integer cinemaMovieTimeId, String cinemaMovieTimeWatchtime, String cinemaMovieTimeEndtime, Double cinemaMovieTimePrice, Integer cinemaMovieId, List<Ticket> tickets, List<Seat> seats) {
         this.cinemaMovieTimeId = cinemaMovieTimeId;
         this.cinemaMovieTimeWatchtime = cinemaMovieTimeWatchtime;
         this.cinemaMovieTimeEndtime = cinemaMovieTimeEndtime;
         this.cinemaMovieTimePrice = cinemaMovieTimePrice;
         this.cinemaMovieId = cinemaMovieId;
         this.tickets = tickets;
+        this.seats = seats;
     }
 
     public Integer getCinemaMovieTimeId() {
@@ -93,5 +98,13 @@ public class CinemaMovieTime {
 
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
     }
 }
