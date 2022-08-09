@@ -1,6 +1,7 @@
 package com.pa.imovie.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class MovieCategory {
@@ -9,6 +10,7 @@ public class MovieCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "movieCategoryId", nullable = false)
     private Integer movieCategoryId;
+
     private Integer categoryId;
     private Integer movieId;
 

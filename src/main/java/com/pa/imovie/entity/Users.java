@@ -22,6 +22,10 @@ public class Users {
     @JoinColumn(name = "usersId")
     private List<Ticket> tickets;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usersId")
+    private List<Comment> comments;
+
     public Users() {
     }
 
@@ -39,6 +43,16 @@ public class Users {
         this.usersGender = usersGender;
         this.seats = seats;
         this.tickets = tickets;
+    }
+
+    public Users(Integer usersId, String usersName, String usersPassword, String usersGender, List<Seat> seats, List<Ticket> tickets, List<Comment> comments) {
+        this.usersId = usersId;
+        this.usersName = usersName;
+        this.usersPassword = usersPassword;
+        this.usersGender = usersGender;
+        this.seats = seats;
+        this.tickets = tickets;
+        this.comments = comments;
     }
 
     public Integer getUsersId() {
@@ -87,5 +101,13 @@ public class Users {
 
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

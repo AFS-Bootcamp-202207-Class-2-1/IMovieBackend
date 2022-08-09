@@ -32,6 +32,14 @@ public class Movie {
     @JoinColumn(name = "movieId")
     private List<DetailImage> detailImages;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "movieId")
+    private List<Comment> comments;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "movieId")
+    private List<Category> categories;
+
     public Movie() {
     }
 
@@ -62,6 +70,24 @@ public class Movie {
         this.cinemaMovies = cinemaMovies;
         this.tickets = tickets;
         this.detailImages = detailImages;
+    }
+
+    public Movie(Integer movieId, String movieName, String movieImage, String movieCatagory, String moviePerformers, String movieIntroduce, String movieReleasetime, String movieVersion, Integer movieTime, Double movieScore, List<CinemaMovie> cinemaMovies, List<Ticket> tickets, List<DetailImage> detailImages, List<Comment> comments, List<Category> categories) {
+        this.movieId = movieId;
+        this.movieName = movieName;
+        this.movieImage = movieImage;
+        this.movieCatagory = movieCatagory;
+        this.moviePerformers = moviePerformers;
+        this.movieIntroduce = movieIntroduce;
+        this.movieReleasetime = movieReleasetime;
+        this.movieVersion = movieVersion;
+        this.movieTime = movieTime;
+        this.movieScore = movieScore;
+        this.cinemaMovies = cinemaMovies;
+        this.tickets = tickets;
+        this.detailImages = detailImages;
+        this.comments = comments;
+        this.categories = categories;
     }
 
     public Integer getMovieId() {
@@ -166,5 +192,21 @@ public class Movie {
 
     public void setDetailImages(List<DetailImage> detailImages) {
         this.detailImages = detailImages;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 }

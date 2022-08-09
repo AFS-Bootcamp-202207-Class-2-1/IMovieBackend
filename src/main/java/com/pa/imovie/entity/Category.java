@@ -1,6 +1,7 @@
 package com.pa.imovie.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Category {
@@ -11,12 +12,22 @@ public class Category {
     private Integer categoryId;
     private String categoryName;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "categoryId")
+    private List<MovieCategory> movieCategories;
+
     public Category() {
     }
 
     public Category(Integer categoryId, String categoryName) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
+    }
+
+    public Category(Integer categoryId, String categoryName, List<MovieCategory> movieCategories) {
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
+        this.movieCategories = movieCategories;
     }
 
     public Integer getCategoryId() {
@@ -33,5 +44,13 @@ public class Category {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public List<MovieCategory> getMovieCategories() {
+        return movieCategories;
+    }
+
+    public void setMovieCategories(List<MovieCategory> movieCategories) {
+        this.movieCategories = movieCategories;
     }
 }
