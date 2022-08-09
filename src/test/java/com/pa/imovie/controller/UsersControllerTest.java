@@ -43,6 +43,9 @@ public class UsersControllerTest {
         usersRepository.deleteAll();
     }
 
+
+
+    //Test:注册成功
     @Test
     void should_register_succeed_and_return_message_registered_successfully_when_call_register_api_given_an_unregistered_user() throws Exception {
 
@@ -64,6 +67,7 @@ public class UsersControllerTest {
 
     }
 
+    //Test:注册失败——用户已存在
     @Test
     void should_register_fail_and_return_message_registered_fail_when_call_register_api_given_an_registered_user() throws Exception {
 
@@ -78,7 +82,6 @@ public class UsersControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string("the user alrealy exists"));
 
-
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
         assertThat(findUsers.get(0).getUsers_name(), equalTo("wade"));
@@ -86,6 +89,30 @@ public class UsersControllerTest {
         assertThat(findUsers.get(0).getUsers_gender(), equalTo("male"));
 
     }
+
+    //Test:登录成功
+    @Test
+    void should_login_succeed_and_return_message_login_successfully_when_call_login_api_given_an_user() throws Exception {
+
+        Users users = new Users(null,"wade","abc","");
+        usersRepository.save(users);
+        String usersJson = new ObjectMapper().writeValueAsString(users);
+
+        client.perform(MockMvcRequestBuilders.post("/users/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(usersJson))
+                .andExpect(status().isOk())
+                .andExpect(content().string("login successfully"));
+
+        List<Users> findUsers = usersRepository.findAll();
+        assertThat(findUsers,hasSize(1));
+        assertThat(findUsers.get(0).getUsers_name(), equalTo("wade"));
+        assertThat(findUsers.get(0).getUsers_password(), equalTo("abc"));
+
+    }
+
+    //the username and password are inconsistent
+
 
 
 }
