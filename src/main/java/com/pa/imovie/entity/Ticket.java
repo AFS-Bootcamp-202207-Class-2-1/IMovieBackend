@@ -13,7 +13,7 @@ public class Ticket {
     private String ticketBuytime;
     private String ticketWatchtiem;
 
-    private Integer userId;
+    private Integer usersId;
     private Integer cinemaId;
     private Integer movieId;
     private Integer seatId;
@@ -29,12 +29,12 @@ public class Ticket {
         this.ticketWatchtiem = ticketWatchtiem;
     }
 
-    public Ticket(Integer ticketId, String ticketUuid, String ticketBuytime, String ticketWatchtiem, Integer userId, Integer cinemaId, Integer movieId, Integer seatId, Integer cinemaMovieTimeId) {
+    public Ticket(Integer ticketId, String ticketUuid, String ticketBuytime, String ticketWatchtiem, Integer usersId, Integer cinemaId, Integer movieId, Integer seatId, Integer cinemaMovieTimeId) {
         this.ticketId = ticketId;
         this.ticketUuid = ticketUuid;
         this.ticketBuytime = ticketBuytime;
         this.ticketWatchtiem = ticketWatchtiem;
-        this.userId = userId;
+        this.usersId = usersId;
         this.cinemaId = cinemaId;
         this.movieId = movieId;
         this.seatId = seatId;
@@ -73,12 +73,12 @@ public class Ticket {
         this.ticketWatchtiem = ticketWatchtiem;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUsersId() {
+        return usersId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUsersId(Integer usersId) {
+        this.usersId = usersId;
     }
 
     public Integer getCinemaId() {

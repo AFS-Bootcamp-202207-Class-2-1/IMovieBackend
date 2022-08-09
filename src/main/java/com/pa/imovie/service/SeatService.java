@@ -1,5 +1,6 @@
 package com.pa.imovie.service;
 
+import com.pa.imovie.dto.BuyInfo;
 import com.pa.imovie.dto.SeatInfo;
 import com.pa.imovie.entity.Seat;
 import com.pa.imovie.entity.Users;
@@ -34,4 +35,15 @@ public class SeatService {
         return seatInfoList;
     }
 
+    public List<Seat> buySeat(BuyInfo buyInfo) {
+        List<Seat> seatList = new ArrayList<>();
+        for (Integer i : buyInfo.getBoughtSeatIdList()) {
+            Seat seat = seatRepository.findById(i).get();
+            seat.setUsersId(buyInfo.getUsersId());
+            seat.setSeatReserve(true);
+            Seat updatedSeat = seatRepository.save(seat);
+            seatList.add(updatedSeat);
+        }
+        return seatList;
+    }
 }
