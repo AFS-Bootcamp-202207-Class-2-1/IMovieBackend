@@ -19,17 +19,17 @@ public class UsersController {
 
 
     @PostMapping("register")
+    @ResponseStatus(HttpStatus.CREATED)
     public String doRegister(@RequestBody Users users){
-
         return usersService.doRegister(users);
 
     }
 
-//    @PostMapping("login")
-//    public String doLogin(@PathVariable String users_name,@PathVariable String users_password){
-//
-//        return usersService.doLogin(users_name,users_password);
-//    }
+
+    @PostMapping("login")
+    public String doLogin(@RequestBody Users users){
+        return usersService.doLogin(users);
+    }
 
 
 }
