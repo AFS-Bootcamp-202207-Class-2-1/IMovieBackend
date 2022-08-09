@@ -27,3 +27,6 @@
 docs/gradle-getting-started
 docs/tmp
 .vscode/
+/src/main/resources/
+
+/src/test/resources/
