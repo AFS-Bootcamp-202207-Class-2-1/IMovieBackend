@@ -1,7 +1,7 @@
 package com.pa.imovie.controller;
 
 import com.pa.imovie.dto.HomeMovieInfo;
-import com.pa.imovie.service.HomePageService;
+import com.pa.imovie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +13,9 @@ import java.util.List;
 @RequestMapping("/home")
 public class HomePageController {
     @Autowired
-    HomePageService homePageService;
+    MovieService movieService;
     @GetMapping("movieInfo")
     public List<HomeMovieInfo> getHomePageMovie(){
-        return homePageService.getHomePageMovie();
+        return movieService.getHomePageMovie();
     }
 }

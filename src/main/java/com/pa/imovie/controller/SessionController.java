@@ -1,9 +1,7 @@
 package com.pa.imovie.controller;
 
 import com.pa.imovie.dto.CinemaMovieItem;
-import com.pa.imovie.dto.SeatInfo;
 import com.pa.imovie.service.CinemaMovieTimeService;
-import com.pa.imovie.service.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

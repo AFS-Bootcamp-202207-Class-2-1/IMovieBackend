@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsersService {
 
-
     @Autowired
    UsersRepository usersRepository;
 
@@ -17,26 +16,20 @@ public class UsersService {
     public String doRegister(Users users){
         String usersName = users.getUsersName();
         Users user = usersRepository.findByUsername(usersName);
-        String msg = "";
         if (user == null){
             usersRepository.save(users);
-            msg = "registered successfully";
-            return msg;
+            return "registered successfully";
         }
-        msg = "the user alrealy exists";
-        return msg;
+        return "the user already exists";
     }
 
     public String doLogin(Users users) {
         String users_name = users.getUsersName();
         String users_password = users.getUsersPassword();
         Users findUser = usersRepository.findUsersByUsernameAndPassword(users_name,users_password);
-        String msg = "";
         if (findUser == null){
-            msg = "the username and password are inconsistent";
-            return msg;
+            return "the username and password are inconsistent";
         }
-        msg = "login successfully";
-        return msg;
+        return "login successfully";
     }
 }

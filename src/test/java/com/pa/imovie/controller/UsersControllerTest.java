@@ -80,7 +80,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isCreated())
-                .andExpect(content().string("the user alrealy exists"));
+                .andExpect(content().string("the user already exists"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
