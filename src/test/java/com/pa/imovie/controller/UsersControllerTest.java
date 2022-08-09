@@ -111,6 +111,7 @@ public class UsersControllerTest {
 
     }
 
+
     //Test: 登录失败——密码错误
     @Test
     void should_login_fail_and_return_message_the_username_and_password_are_inconsistent_when_call_login_api_given_an_wrong_password() throws Exception {
@@ -133,6 +134,27 @@ public class UsersControllerTest {
 
     }
 
+    //Test: 登录失败——用户名错误
+    @Test
+    void should_login_fail_and_return_message_the_username_and_password_are_inconsistent_when_call_login_api_given_an_wrong_username() throws Exception {
+
+        Users users = new Users(null,"wade","abc","");
+        usersRepository.save(users);
+        Users errorUsers = new Users(null,"error","abc","");
+        String usersJson = new ObjectMapper().writeValueAsString(errorUsers);
+
+        client.perform(MockMvcRequestBuilders.post("/users/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(usersJson))
+                .andExpect(status().isOk())
+                .andExpect(content().string("the username and password are inconsistent"));
+
+        List<Users> findUsers = usersRepository.findAll();
+        assertThat(findUsers,hasSize(1));
+        assertThat(findUsers.get(0).getUsers_name(), equalTo("wade"));
+        assertThat(findUsers.get(0).getUsers_password(), equalTo("abc"));
+
+    }
 
 
 }
