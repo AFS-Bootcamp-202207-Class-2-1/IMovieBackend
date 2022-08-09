@@ -7,58 +7,58 @@ public class DetailImage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "detailImage_id", nullable = false)
-    private Integer detailImage_id;
-    private String detailImage_name;
-    private String detailImage_url;
+    @Column(name = "detailImageId", nullable = false)
+    private Integer detailImageId;
+    private String detailImageName;
+    private String detailImageUrl;
 
-    private Integer movie_id;
+    private Integer movieId;
 
     public DetailImage() {
     }
 
-    public DetailImage(Integer detailImage_id, String detailImage_name, String detailImage_url) {
-        this.detailImage_id = detailImage_id;
-        this.detailImage_name = detailImage_name;
-        this.detailImage_url = detailImage_url;
+    public DetailImage(Integer detailImageId, String detailImageName, String detailImageUrl) {
+        this.detailImageId = detailImageId;
+        this.detailImageName = detailImageName;
+        this.detailImageUrl = detailImageUrl;
     }
 
-    public DetailImage(Integer detailImage_id, String detailImage_name, String detailImage_url, Integer movie_id) {
-        this.detailImage_id = detailImage_id;
-        this.detailImage_name = detailImage_name;
-        this.detailImage_url = detailImage_url;
-        this.movie_id = movie_id;
+    public DetailImage(Integer detailImageId, String detailImageName, String detailImageUrl, Integer movieId) {
+        this.detailImageId = detailImageId;
+        this.detailImageName = detailImageName;
+        this.detailImageUrl = detailImageUrl;
+        this.movieId = movieId;
     }
 
-    public Integer getDetailImage_id() {
-        return detailImage_id;
+    public Integer getDetailImageId() {
+        return detailImageId;
     }
 
-    public void setDetailImage_id(Integer detailImage_id) {
-        this.detailImage_id = detailImage_id;
+    public void setDetailImageId(Integer detailImageId) {
+        this.detailImageId = detailImageId;
     }
 
-    public String getDetailImage_name() {
-        return detailImage_name;
+    public String getDetailImageName() {
+        return detailImageName;
     }
 
-    public void setDetailImage_name(String detailImage_name) {
-        this.detailImage_name = detailImage_name;
+    public void setDetailImageName(String detailImageName) {
+        this.detailImageName = detailImageName;
     }
 
-    public String getDetailImage_url() {
-        return detailImage_url;
+    public String getDetailImageUrl() {
+        return detailImageUrl;
     }
 
-    public void setDetailImage_url(String detailImage_url) {
-        this.detailImage_url = detailImage_url;
+    public void setDetailImageUrl(String detailImageUrl) {
+        this.detailImageUrl = detailImageUrl;
     }
 
-    public Integer getMovie_id() {
-        return movie_id;
+    public Integer getMovieId() {
+        return movieId;
     }
 
-    public void setMovie_id(Integer movie_id) {
-        this.movie_id = movie_id;
+    public void setMovieId(Integer movieId) {
+        this.movieId = movieId;
     }
 }

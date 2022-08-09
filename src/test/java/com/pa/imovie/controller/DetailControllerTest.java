@@ -44,13 +44,13 @@ public class DetailControllerTest {
         Movie movie = new Movie(2, "电影名字", "图片url", "分类01,分类02", "表演者", "电影介绍", "上映时间", 180, 4d, null, null, detailImageList);
         Movie save = movieRepository.save(movie);
         //then
-        client.perform(MockMvcRequestBuilders.get("/detail/{movieId}", save.getMovie_id()))
+        client.perform(MockMvcRequestBuilders.get("/detail/{movieId}", save.getMovieId()))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movie_id").isNumber())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movie_name").value("电影名字"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movie_image").value("图片url"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movie_score").value(4d))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.detailImages[*].detailImage_url", containsInAnyOrder("详情图01url", "详情图02url")));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.movieId").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.movieName").value("电影名字"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.movieImage").value("图片url"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.movieScore").value(4d))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.detailImages[*].detailImageUrl", containsInAnyOrder("详情图01url", "详情图02url")));
     }
 
 }

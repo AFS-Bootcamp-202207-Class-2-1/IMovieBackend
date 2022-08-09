@@ -8,54 +8,58 @@ public class CinemaMovie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cinemaMovie_id", nullable = false)
-    private Integer cinemaMovie_id;
+    @Column(name = "cinemaMovieId", nullable = false)
+    private Integer cinemaMovieId;
 
-    private Integer cinema_id;
-    private Integer movie_id;
+    private Integer cinemaId;
+    private Integer movieId;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cinemaMovie_id")
+    @JoinColumn(name = "cinemaMovieId")
     private List<CinemaMovieTime> cinemaMovieTimes;
 
     public CinemaMovie() {
     }
 
-    public CinemaMovie(Integer cinemaMovie_id, Integer cinema_id, Integer movie_id) {
-        this.cinemaMovie_id = cinemaMovie_id;
-        this.cinema_id = cinema_id;
-        this.movie_id = movie_id;
+    public CinemaMovie(Integer cinemaMovieId) {
+        this.cinemaMovieId = cinemaMovieId;
     }
 
-    public CinemaMovie(Integer cinemaMovie_id, Integer cinema_id, Integer movie_id, List<CinemaMovieTime> cinemaMovieTimes) {
-        this.cinemaMovie_id = cinemaMovie_id;
-        this.cinema_id = cinema_id;
-        this.movie_id = movie_id;
+    public CinemaMovie(Integer cinemaMovieId, Integer cinemaId, Integer movieId) {
+        this.cinemaMovieId = cinemaMovieId;
+        this.cinemaId = cinemaId;
+        this.movieId = movieId;
+    }
+
+    public CinemaMovie(Integer cinemaMovieId, Integer cinemaId, Integer movieId, List<CinemaMovieTime> cinemaMovieTimes) {
+        this.cinemaMovieId = cinemaMovieId;
+        this.cinemaId = cinemaId;
+        this.movieId = movieId;
         this.cinemaMovieTimes = cinemaMovieTimes;
     }
 
-    public Integer getCinemaMovie_id() {
-        return cinemaMovie_id;
+    public Integer getCinemaMovieId() {
+        return cinemaMovieId;
     }
 
-    public void setCinemaMovie_id(Integer cinemaMovie_id) {
-        this.cinemaMovie_id = cinemaMovie_id;
+    public void setCinemaMovieId(Integer cinemaMovieId) {
+        this.cinemaMovieId = cinemaMovieId;
     }
 
-    public Integer getCinema_id() {
-        return cinema_id;
+    public Integer getCinemaId() {
+        return cinemaId;
     }
 
-    public void setCinema_id(Integer cinema_id) {
-        this.cinema_id = cinema_id;
+    public void setCinemaId(Integer cinemaId) {
+        this.cinemaId = cinemaId;
     }
 
-    public Integer getMovie_id() {
-        return movie_id;
+    public Integer getMovieId() {
+        return movieId;
     }
 
-    public void setMovie_id(Integer movie_id) {
-        this.movie_id = movie_id;
+    public void setMovieId(Integer movieId) {
+        this.movieId = movieId;
     }
 
     public List<CinemaMovieTime> getCinemaMovieTimes() {
@@ -65,5 +69,4 @@ public class CinemaMovie {
     public void setCinemaMovieTimes(List<CinemaMovieTime> cinemaMovieTimes) {
         this.cinemaMovieTimes = cinemaMovieTimes;
     }
-
 }

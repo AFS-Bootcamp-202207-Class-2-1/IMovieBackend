@@ -1,113 +1,112 @@
 package com.pa.imovie.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Seat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "seat_id", nullable = false)
-    private Integer seat_id;
-    private String seat_name;
-    private Integer seat_row;
-    private Integer seat_col;
-    private Boolean seat_reserve;
+    @Column(name = "seatId", nullable = false)
+    private Integer seatId;
+    private String seatName;
+    private Integer seatRow;
+    private Integer seatCol;
+    private Boolean seatReserve;
 
-    private Integer cinema_id;
-    private Integer user_id;
+    private Integer cinemaId;
+    private Integer userId;
 
     @OneToOne
-    @JoinColumn(name = "seat_id")
+    @JoinColumn(name = "seatId")
     private Ticket ticket;
 
     public Seat() {
     }
 
-    public Seat(Integer seat_id, String seat_name, Integer seat_row, Integer seat_col, Boolean seat_reserve) {
-        this.seat_id = seat_id;
-        this.seat_name = seat_name;
-        this.seat_row = seat_row;
-        this.seat_col = seat_col;
-        this.seat_reserve = seat_reserve;
+    public Seat(Integer seatId, String seatName, Integer seatRow, Integer seatCol, Boolean seatReserve) {
+        this.seatId = seatId;
+        this.seatName = seatName;
+        this.seatRow = seatRow;
+        this.seatCol = seatCol;
+        this.seatReserve = seatReserve;
     }
 
-    public Seat(Integer seat_id, String seat_name, Integer seat_row, Integer seat_col, Integer cinema_id, Integer user_id, Boolean seat_reserve) {
-        this.seat_id = seat_id;
-        this.seat_name = seat_name;
-        this.seat_row = seat_row;
-        this.seat_col = seat_col;
-        this.cinema_id = cinema_id;
-        this.user_id = user_id;
-        this.seat_reserve = seat_reserve;
+    public Seat(Integer seatId, String seatName, Integer seatRow, Integer seatCol, Boolean seatReserve, Integer cinemaId, Integer userId) {
+        this.seatId = seatId;
+        this.seatName = seatName;
+        this.seatRow = seatRow;
+        this.seatCol = seatCol;
+        this.seatReserve = seatReserve;
+        this.cinemaId = cinemaId;
+        this.userId = userId;
     }
 
-    public Seat(Integer seat_id, String seat_name, Integer seat_row, Integer seat_col, Boolean seat_reserve, Integer cinema_id, Integer user_id, Ticket ticket) {
-        this.seat_id = seat_id;
-        this.seat_name = seat_name;
-        this.seat_row = seat_row;
-        this.seat_col = seat_col;
-        this.seat_reserve = seat_reserve;
-        this.cinema_id = cinema_id;
-        this.user_id = user_id;
+    public Seat(Integer seatId, String seatName, Integer seatRow, Integer seatCol, Boolean seatReserve, Integer cinemaId, Integer userId, Ticket ticket) {
+        this.seatId = seatId;
+        this.seatName = seatName;
+        this.seatRow = seatRow;
+        this.seatCol = seatCol;
+        this.seatReserve = seatReserve;
+        this.cinemaId = cinemaId;
+        this.userId = userId;
         this.ticket = ticket;
     }
 
-    public Integer getSeat_id() {
-        return seat_id;
+    public Integer getSeatId() {
+        return seatId;
     }
 
-    public void setSeat_id(Integer seat_id) {
-        this.seat_id = seat_id;
+    public void setSeatId(Integer seatId) {
+        this.seatId = seatId;
     }
 
-    public String getSeat_name() {
-        return seat_name;
+    public String getSeatName() {
+        return seatName;
     }
 
-    public void setSeat_name(String seat_name) {
-        this.seat_name = seat_name;
+    public void setSeatName(String seatName) {
+        this.seatName = seatName;
     }
 
-    public Integer getSeat_row() {
-        return seat_row;
+    public Integer getSeatRow() {
+        return seatRow;
     }
 
-    public void setSeat_row(Integer seat_row) {
-        this.seat_row = seat_row;
+    public void setSeatRow(Integer seatRow) {
+        this.seatRow = seatRow;
     }
 
-    public Integer getSeat_col() {
-        return seat_col;
+    public Integer getSeatCol() {
+        return seatCol;
     }
 
-    public void setSeat_col(Integer seat_col) {
-        this.seat_col = seat_col;
+    public void setSeatCol(Integer seatCol) {
+        this.seatCol = seatCol;
     }
 
-    public Integer getCinema_id() {
-        return cinema_id;
+    public Boolean getSeatReserve() {
+        return seatReserve;
     }
 
-    public void setCinema_id(Integer cinema_id) {
-        this.cinema_id = cinema_id;
+    public void setSeatReserve(Boolean seatReserve) {
+        this.seatReserve = seatReserve;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getCinemaId() {
+        return cinemaId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setCinemaId(Integer cinemaId) {
+        this.cinemaId = cinemaId;
     }
 
-    public Boolean getSeat_reserve() {
-        return seat_reserve;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setSeat_reserve(Boolean seat_reserve) {
-        this.seat_reserve = seat_reserve;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Ticket getTicket() {

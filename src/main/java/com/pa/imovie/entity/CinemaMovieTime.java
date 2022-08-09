@@ -8,71 +8,83 @@ public class CinemaMovieTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cinemaMovieTime_id", nullable = false)
-    private Integer cinemaMovieTime_id;
-    private String cinemaMovieTime_watchtime;
-    private Double cinemaMovieTime_price;
+    @Column(name = "cinemaMovieTimeId", nullable = false)
+    private Integer cinemaMovieTimeId;
+    private String cinemaMovieTimeWatchtime;
+    private String cinemaMovieTimeEndtime;
+    private Double cinemaMovieTimePrice;
 
-    private Integer cinemaMovie_id;
+    private Integer cinemaMovieId;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cinemaMovieTime_id")
+    @JoinColumn(name = "cinemaMovieTimeId")
     private List<Ticket> tickets;
 
     public CinemaMovieTime() {
     }
 
-    public CinemaMovieTime(Integer cinemaMovieTime_id, String cinemaMovieTime_watchtime, Double cinemaMovieTime_price) {
-        this.cinemaMovieTime_id = cinemaMovieTime_id;
-        this.cinemaMovieTime_watchtime = cinemaMovieTime_watchtime;
-        this.cinemaMovieTime_price = cinemaMovieTime_price;
+    public CinemaMovieTime(Integer cinemaMovieTimeId, String cinemaMovieTimeWatchtime, String cinemaMovieTimeEndtime, Double cinemaMovieTimePrice) {
+        this.cinemaMovieTimeId = cinemaMovieTimeId;
+        this.cinemaMovieTimeWatchtime = cinemaMovieTimeWatchtime;
+        this.cinemaMovieTimeEndtime = cinemaMovieTimeEndtime;
+        this.cinemaMovieTimePrice = cinemaMovieTimePrice;
     }
 
-    public CinemaMovieTime(Integer cinemaMovieTime_id, Integer cinemaMovie_id, String cinemaMovieTime_watchtime, Double cinemaMovie_price) {
-        this.cinemaMovieTime_id = cinemaMovieTime_id;
-        this.cinemaMovie_id = cinemaMovie_id;
-        this.cinemaMovieTime_watchtime = cinemaMovieTime_watchtime;
-        this.cinemaMovieTime_price = cinemaMovie_price;
+    public CinemaMovieTime(Integer cinemaMovieTimeId, String cinemaMovieTimeWatchtime, String cinemaMovieTimeEndtime, Double cinemaMovieTimePrice, Integer cinemaMovieId) {
+        this.cinemaMovieTimeId = cinemaMovieTimeId;
+        this.cinemaMovieTimeWatchtime = cinemaMovieTimeWatchtime;
+        this.cinemaMovieTimeEndtime = cinemaMovieTimeEndtime;
+        this.cinemaMovieTimePrice = cinemaMovieTimePrice;
+        this.cinemaMovieId = cinemaMovieId;
     }
 
-    public CinemaMovieTime(Integer cinemaMovieTime_id, String cinemaMovieTime_watchtime, Double cinemaMovie_price, Integer cinemaMovie_id, List<Ticket> tickets) {
-        this.cinemaMovieTime_id = cinemaMovieTime_id;
-        this.cinemaMovieTime_watchtime = cinemaMovieTime_watchtime;
-        this.cinemaMovieTime_price = cinemaMovie_price;
-        this.cinemaMovie_id = cinemaMovie_id;
+    public CinemaMovieTime(Integer cinemaMovieTimeId, String cinemaMovieTimeWatchtime, String cinemaMovieTimeEndtime, Double cinemaMovieTimePrice, Integer cinemaMovieId, List<Ticket> tickets) {
+        this.cinemaMovieTimeId = cinemaMovieTimeId;
+        this.cinemaMovieTimeWatchtime = cinemaMovieTimeWatchtime;
+        this.cinemaMovieTimeEndtime = cinemaMovieTimeEndtime;
+        this.cinemaMovieTimePrice = cinemaMovieTimePrice;
+        this.cinemaMovieId = cinemaMovieId;
         this.tickets = tickets;
     }
 
-    public Integer getCinemaMovieTime_id() {
-        return cinemaMovieTime_id;
+    public Integer getCinemaMovieTimeId() {
+        return cinemaMovieTimeId;
     }
 
-    public void setCinemaMovieTime_id(Integer cinemaMovieTime_id) {
-        this.cinemaMovieTime_id = cinemaMovieTime_id;
+    public void setCinemaMovieTimeId(Integer cinemaMovieTimeId) {
+        this.cinemaMovieTimeId = cinemaMovieTimeId;
     }
 
-    public Integer getCinemaMovie_id() {
-        return cinemaMovie_id;
+    public String getCinemaMovieTimeWatchtime() {
+        return cinemaMovieTimeWatchtime;
     }
 
-    public void setCinemaMovie_id(Integer cinemaMovie_id) {
-        this.cinemaMovie_id = cinemaMovie_id;
+    public void setCinemaMovieTimeWatchtime(String cinemaMovieTimeWatchtime) {
+        this.cinemaMovieTimeWatchtime = cinemaMovieTimeWatchtime;
     }
 
-    public String getCinemaMovieTime_watchtime() {
-        return cinemaMovieTime_watchtime;
+    public String getCinemaMovieTimeEndtime() {
+        return cinemaMovieTimeEndtime;
     }
 
-    public void setCinemaMovieTime_watchtime(String cinemaMovieTime_watchtime) {
-        this.cinemaMovieTime_watchtime = cinemaMovieTime_watchtime;
+    public void setCinemaMovieTimeEndtime(String cinemaMovieTimeEndtime) {
+        this.cinemaMovieTimeEndtime = cinemaMovieTimeEndtime;
     }
 
-    public Double getCinemaMovieTime_price() {
-        return cinemaMovieTime_price;
+    public Double getCinemaMovieTimePrice() {
+        return cinemaMovieTimePrice;
     }
 
-    public void setCinemaMovieTime_price(Double cinemaMovieTime_price) {
-        this.cinemaMovieTime_price = cinemaMovieTime_price;
+    public void setCinemaMovieTimePrice(Double cinemaMovieTimePrice) {
+        this.cinemaMovieTimePrice = cinemaMovieTimePrice;
+    }
+
+    public Integer getCinemaMovieId() {
+        return cinemaMovieId;
+    }
+
+    public void setCinemaMovieId(Integer cinemaMovieId) {
+        this.cinemaMovieId = cinemaMovieId;
     }
 
     public List<Ticket> getTickets() {
@@ -82,5 +94,4 @@ public class CinemaMovieTime {
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
-
 }

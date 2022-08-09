@@ -8,140 +8,129 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "movie_id", nullable = false)
-    private Integer movie_id;
-    private String movie_name;
-    private String movie_image;
-    private String movie_catagory;
-    private String movie_performers;
-    private String movie_introduce;
-    private String movie_releasetime;
-    private Integer movie_time;
-    private Double movie_score;
+    @Column(name = "movieId", nullable = false)
+    private Integer movieId;
+    private String movieName;
+    private String movieImage;
+    private String movieCatagory;
+    private String moviePerformers;
+    private String movieIntroduce;
+    private String movieReleasetime;
+    private Integer movieTime;
+    private Double movieScore;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "movie_id")
+    @JoinColumn(name = "movieId")
     private List<CinemaMovie> cinemaMovies;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "movie_id")
+    @JoinColumn(name = "movieId")
     private List<Ticket> tickets;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "movie_id")
+    @JoinColumn(name = "movieId")
     private List<DetailImage> detailImages;
 
     public Movie() {
     }
 
-    public Movie(Integer movie_id, String movie_name, String movie_image, String movie_performers, String movie_introduce, String movie_releasetime, Integer movie_time, Double movie_score) {
-        this.movie_id = movie_id;
-        this.movie_name = movie_name;
-        this.movie_image = movie_image;
-        this.movie_performers = movie_performers;
-        this.movie_introduce = movie_introduce;
-        this.movie_releasetime = movie_releasetime;
-        this.movie_time = movie_time;
-        this.movie_score = movie_score;
+    public Movie(Integer movieId, String movieName, String movieImage, String movieCatagory, String moviePerformers, String movieIntroduce, String movieReleasetime, Integer movieTime, Double movieScore) {
+        this.movieId = movieId;
+        this.movieName = movieName;
+        this.movieImage = movieImage;
+        this.movieCatagory = movieCatagory;
+        this.moviePerformers = moviePerformers;
+        this.movieIntroduce = movieIntroduce;
+        this.movieReleasetime = movieReleasetime;
+        this.movieTime = movieTime;
+        this.movieScore = movieScore;
     }
 
-    public Movie(Integer movie_id, String movie_name, String movie_image, String movie_catagory, String movie_performers, String movie_introduce, String movie_releasetime, Integer movie_time, Double movie_score) {
-        this.movie_id = movie_id;
-        this.movie_name = movie_name;
-        this.movie_image = movie_image;
-        this.movie_catagory = movie_catagory;
-        this.movie_performers = movie_performers;
-        this.movie_introduce = movie_introduce;
-        this.movie_releasetime = movie_releasetime;
-        this.movie_time = movie_time;
-        this.movie_score = movie_score;
-    }
-
-    public Movie(Integer movie_id, String movie_name, String movie_image, String movie_catagory, String movie_performers, String movie_introduce, String movie_releasetime, Integer movie_time, Double movie_score, List<CinemaMovie> cinemaMovies, List<Ticket> tickets, List<DetailImage> detailImages) {
-        this.movie_id = movie_id;
-        this.movie_name = movie_name;
-        this.movie_image = movie_image;
-        this.movie_catagory = movie_catagory;
-        this.movie_performers = movie_performers;
-        this.movie_introduce = movie_introduce;
-        this.movie_releasetime = movie_releasetime;
-        this.movie_time = movie_time;
-        this.movie_score = movie_score;
+    public Movie(Integer movieId, String movieName, String movieImage, String movieCatagory, String moviePerformers, String movieIntroduce, String movieReleasetime, Integer movieTime, Double movieScore, List<CinemaMovie> cinemaMovies, List<Ticket> tickets, List<DetailImage> detailImages) {
+        this.movieId = movieId;
+        this.movieName = movieName;
+        this.movieImage = movieImage;
+        this.movieCatagory = movieCatagory;
+        this.moviePerformers = moviePerformers;
+        this.movieIntroduce = movieIntroduce;
+        this.movieReleasetime = movieReleasetime;
+        this.movieTime = movieTime;
+        this.movieScore = movieScore;
         this.cinemaMovies = cinemaMovies;
         this.tickets = tickets;
         this.detailImages = detailImages;
     }
 
-    public Integer getMovie_id() {
-        return movie_id;
+    public Integer getMovieId() {
+        return movieId;
     }
 
-    public void setMovie_id(Integer movie_id) {
-        this.movie_id = movie_id;
+    public void setMovieId(Integer movieId) {
+        this.movieId = movieId;
     }
 
-    public String getMovie_name() {
-        return movie_name;
+    public String getMovieName() {
+        return movieName;
     }
 
-    public void setMovie_name(String movie_name) {
-        this.movie_name = movie_name;
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
     }
 
-    public String getMovie_image() {
-        return movie_image;
+    public String getMovieImage() {
+        return movieImage;
     }
 
-    public void setMovie_image(String movie_image) {
-        this.movie_image = movie_image;
+    public void setMovieImage(String movieImage) {
+        this.movieImage = movieImage;
     }
 
-    public String getMovie_catagory() {
-        return movie_catagory;
+    public String getMovieCatagory() {
+        return movieCatagory;
     }
 
-    public void setMovie_catagory(String movie_catagory) {
-        this.movie_catagory = movie_catagory;
+    public void setMovieCatagory(String movieCatagory) {
+        this.movieCatagory = movieCatagory;
     }
 
-    public String getMovie_performers() {
-        return movie_performers;
+    public String getMoviePerformers() {
+        return moviePerformers;
     }
 
-    public void setMovie_performers(String movie_performers) {
-        this.movie_performers = movie_performers;
+    public void setMoviePerformers(String moviePerformers) {
+        this.moviePerformers = moviePerformers;
     }
 
-    public String getMovie_introduce() {
-        return movie_introduce;
+    public String getMovieIntroduce() {
+        return movieIntroduce;
     }
 
-    public void setMovie_introduce(String movie_introduce) {
-        this.movie_introduce = movie_introduce;
+    public void setMovieIntroduce(String movieIntroduce) {
+        this.movieIntroduce = movieIntroduce;
     }
 
-    public String getMovie_releasetime() {
-        return movie_releasetime;
+    public String getMovieReleasetime() {
+        return movieReleasetime;
     }
 
-    public void setMovie_releasetime(String movie_releasetime) {
-        this.movie_releasetime = movie_releasetime;
+    public void setMovieReleasetime(String movieReleasetime) {
+        this.movieReleasetime = movieReleasetime;
     }
 
-    public Integer getMovie_time() {
-        return movie_time;
+    public Integer getMovieTime() {
+        return movieTime;
     }
 
-    public void setMovie_time(Integer movie_time) {
-        this.movie_time = movie_time;
+    public void setMovieTime(Integer movieTime) {
+        this.movieTime = movieTime;
     }
 
-    public Double getMovie_score() {
-        return movie_score;
+    public Double getMovieScore() {
+        return movieScore;
     }
 
-    public void setMovie_score(Double movie_score) {
-        this.movie_score = movie_score;
+    public void setMovieScore(Double movieScore) {
+        this.movieScore = movieScore;
     }
 
     public List<CinemaMovie> getCinemaMovies() {

@@ -8,74 +8,74 @@ public class Cinema {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cinema_id", nullable = false)
-    private Integer cinema_id;
-    private String cinema_name;
-    private String cinema_address;
-    private String cinema_phone;
+    @Column(name = "cinemaId", nullable = false)
+    private Integer cinemaId;
+    private String cinemaName;
+    private String cinemaAddress;
+    private String cinemaPhone;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cinema_id")
+    @JoinColumn(name = "cinemaId")
     private List<CinemaMovie> cinemaMovies;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cinema_id")
+    @JoinColumn(name = "cinemaId")
     private List<Seat> seats;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cinema_id")
+    @JoinColumn(name = "cinemaId")
     private List<Ticket> tickets;
 
     public Cinema() {
     }
 
-    public Cinema(Integer cinema_id, String cinema_name, String cinema_address, String cinema_phone) {
-        this.cinema_id = cinema_id;
-        this.cinema_name = cinema_name;
-        this.cinema_address = cinema_address;
-        this.cinema_phone = cinema_phone;
+    public Cinema(Integer cinemaId, String cinemaName, String cinemaAddress, String cinemaPhone) {
+        this.cinemaId = cinemaId;
+        this.cinemaName = cinemaName;
+        this.cinemaAddress = cinemaAddress;
+        this.cinemaPhone = cinemaPhone;
     }
 
-    public Cinema(Integer cinema_id, String cinema_name, String cinema_address, String cinema_phone, List<CinemaMovie> cinemaMovies, List<Seat> seats, List<Ticket> tickets) {
-        this.cinema_id = cinema_id;
-        this.cinema_name = cinema_name;
-        this.cinema_address = cinema_address;
-        this.cinema_phone = cinema_phone;
+    public Cinema(Integer cinemaId, String cinemaName, String cinemaAddress, String cinemaPhone, List<CinemaMovie> cinemaMovies, List<Seat> seats, List<Ticket> tickets) {
+        this.cinemaId = cinemaId;
+        this.cinemaName = cinemaName;
+        this.cinemaAddress = cinemaAddress;
+        this.cinemaPhone = cinemaPhone;
         this.cinemaMovies = cinemaMovies;
         this.seats = seats;
         this.tickets = tickets;
     }
 
-    public Integer getCinema_id() {
-        return cinema_id;
+    public Integer getCinemaId() {
+        return cinemaId;
     }
 
-    public void setCinema_id(Integer cinema_id) {
-        this.cinema_id = cinema_id;
+    public void setCinemaId(Integer cinemaId) {
+        this.cinemaId = cinemaId;
     }
 
-    public String getCinema_name() {
-        return cinema_name;
+    public String getCinemaName() {
+        return cinemaName;
     }
 
-    public void setCinema_name(String cinema_name) {
-        this.cinema_name = cinema_name;
+    public void setCinemaName(String cinemaName) {
+        this.cinemaName = cinemaName;
     }
 
-    public String getCinema_address() {
-        return cinema_address;
+    public String getCinemaAddress() {
+        return cinemaAddress;
     }
 
-    public void setCinema_address(String cinema_address) {
-        this.cinema_address = cinema_address;
+    public void setCinemaAddress(String cinemaAddress) {
+        this.cinemaAddress = cinemaAddress;
     }
 
-    public String getCinema_phone() {
-        return cinema_phone;
+    public String getCinemaPhone() {
+        return cinemaPhone;
     }
 
-    public void setCinema_phone(String cinema_phone) {
-        this.cinema_phone = cinema_phone;
+    public void setCinemaPhone(String cinemaPhone) {
+        this.cinemaPhone = cinemaPhone;
     }
 
     public List<CinemaMovie> getCinemaMovies() {
@@ -101,5 +101,4 @@ public class Cinema {
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
-
 }

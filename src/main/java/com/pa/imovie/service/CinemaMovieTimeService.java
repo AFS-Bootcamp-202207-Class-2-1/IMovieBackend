@@ -1,9 +1,12 @@
 package com.pa.imovie.service;
 
+import com.pa.imovie.entity.Cinema;
+import com.pa.imovie.dto.CinemaMovieItem;
 import com.pa.imovie.entity.CinemaMovie;
 import com.pa.imovie.entity.CinemaMovieTime;
 import com.pa.imovie.repository.CinemaMovieRepository;
 import com.pa.imovie.repository.CinemaMovieTimeRepository;
+import com.pa.imovie.repository.CinemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +22,21 @@ public class CinemaMovieTimeService {
     @Autowired
     CinemaMovieTimeRepository cinemaMovieTimeRepository;
 
-    public List<CinemaMovieTime> getCinemaMovieTimeListByMovieId(Integer movie_id) {
-        List<CinemaMovie> cinemaMovieList = cinemaMovieRepository.findByMovie_id(movie_id);
+    @Autowired
+    CinemaRepository cinemaRepository;
+
+    public List<CinemaMovieItem> getCinemaMovieTimeListByMovieId(Integer movie_id) {
+        List<CinemaMovie> cinemaMovieList = cinemaMovieRepository.findByMovieId(movie_id);
         List<CinemaMovieTime> cinemaMovieTimeList = new ArrayList<>();
+        List<CinemaMovieItem> cinemaMoiveItemList = new ArrayList<>();
         for (CinemaMovie cinemaMovie : cinemaMovieList) {
-            cinemaMovieTimeList.addAll(cinemaMovieTimeRepository.findByCinemaMovie_id(cinemaMovie.getCinema_id()));
+            Cinema cinema = cinemaRepository.findById(cinemaMovie.getCinemaId()).get();
+            cinemaMovieTimeList = cinemaMovieTimeRepository.findByCinemaMovieId(cinemaMovie.getCinemaId());
+            for (CinemaMovieTime cinemaMovieTime : cinemaMovieTimeList){
+                cinemaMoiveItemList.add(new CinemaMovieItem(cinemaMovieTime.getCinemaMovieTimeId(), cinemaMovieTime.getCinemaMovieTimeWatchtime(), cinemaMovieTime.getCinemaMovieTimeEndtime(), cinemaMovieTime.getCinemaMovieTimePrice(), cinema.getCinemaId(), cinema.getCinemaName()));
+            }
         }
-        return cinemaMovieTimeList;
+        return cinemaMoiveItemList;
     }
 
 }

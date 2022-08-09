@@ -8,69 +8,69 @@ public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "users_id", nullable = false)
-    private Integer users_id;
-    private String users_name;
-    private String users_password;
-    private String users_gender;
+    @Column(name = "usersId", nullable = false)
+    private Integer usersId;
+    private String usersName;
+    private String usersPassword;
+    private String usersGender;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "users_id")
+    @JoinColumn(name = "usersId")
     private List<Seat> seats;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "users_id")
+    @JoinColumn(name = "usersId")
     private List<Ticket> tickets;
 
     public Users() {
     }
 
-    public Users(Integer users_id, String users_name, String users_password, String users_gender) {
-        this.users_id = users_id;
-        this.users_name = users_name;
-        this.users_password = users_password;
-        this.users_gender = users_gender;
+    public Users(Integer usersId, String usersName, String usersPassword, String usersGender) {
+        this.usersId = usersId;
+        this.usersName = usersName;
+        this.usersPassword = usersPassword;
+        this.usersGender = usersGender;
     }
 
-    public Users(Integer users_id, String users_name, String users_password, String users_gender, List<Seat> seats, List<Ticket> tickets) {
-        this.users_id = users_id;
-        this.users_name = users_name;
-        this.users_password = users_password;
-        this.users_gender = users_gender;
+    public Users(Integer usersId, String usersName, String usersPassword, String usersGender, List<Seat> seats, List<Ticket> tickets) {
+        this.usersId = usersId;
+        this.usersName = usersName;
+        this.usersPassword = usersPassword;
+        this.usersGender = usersGender;
         this.seats = seats;
         this.tickets = tickets;
     }
 
-    public Integer getUsers_id() {
-        return users_id;
+    public Integer getUsersId() {
+        return usersId;
     }
 
-    public void setUsers_id(Integer users_id) {
-        this.users_id = users_id;
+    public void setUsersId(Integer usersId) {
+        this.usersId = usersId;
     }
 
-    public String getUsers_name() {
-        return users_name;
+    public String getUsersName() {
+        return usersName;
     }
 
-    public void setUsers_name(String users_name) {
-        this.users_name = users_name;
+    public void setUsersName(String usersName) {
+        this.usersName = usersName;
     }
 
-    public String getUsers_password() {
-        return users_password;
+    public String getUsersPassword() {
+        return usersPassword;
     }
 
-    public void setUsers_password(String users_password) {
-        this.users_password = users_password;
+    public void setUsersPassword(String usersPassword) {
+        this.usersPassword = usersPassword;
     }
 
-    public String getUsers_gender() {
-        return users_gender;
+    public String getUsersGender() {
+        return usersGender;
     }
 
-    public void setUsers_gender(String users_gender) {
-        this.users_gender = users_gender;
+    public void setUsersGender(String usersGender) {
+        this.usersGender = usersGender;
     }
 
     public List<Seat> getSeats() {

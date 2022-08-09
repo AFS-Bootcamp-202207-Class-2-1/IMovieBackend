@@ -7,110 +7,109 @@ public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ticket_id", nullable = false)
-    private Integer ticket_id;
-    private String ticket_uuid;
-    private String ticket_buytime;
-    private String ticket_watchtiem;
+    @Column(name = "ticketId", nullable = false)
+    private Integer ticketId;
+    private String ticketUuid;
+    private String ticketBuytime;
+    private String ticketWatchtiem;
 
-    private Integer user_id;
-    private Integer cinema_id;
-    private Integer movie_id;
-    private Integer seat_id;
-    private Integer cinemaMovieTime_id;
+    private Integer userId;
+    private Integer cinemaId;
+    private Integer movieId;
+    private Integer seatId;
+    private Integer cinemaMovieTimeId;
 
     public Ticket() {
     }
 
-    public Ticket(Integer ticket_id, String ticket_uuid, String ticket_buytime, String ticket_watchtiem) {
-        this.ticket_id = ticket_id;
-        this.ticket_uuid = ticket_uuid;
-        this.ticket_buytime = ticket_buytime;
-        this.ticket_watchtiem = ticket_watchtiem;
+    public Ticket(Integer ticketId, String ticketUuid, String ticketBuytime, String ticketWatchtiem) {
+        this.ticketId = ticketId;
+        this.ticketUuid = ticketUuid;
+        this.ticketBuytime = ticketBuytime;
+        this.ticketWatchtiem = ticketWatchtiem;
     }
 
-    public Ticket(Integer ticket_id, String ticket_uuid, Integer user_id, Integer cinema_id, Integer movie_id, Integer seat_id, Integer cinemaMovieTime_id, String ticket_buytime, String ticket_watchtiem) {
-        this.ticket_id = ticket_id;
-        this.ticket_uuid = ticket_uuid;
-        this.user_id = user_id;
-        this.cinema_id = cinema_id;
-        this.movie_id = movie_id;
-        this.seat_id = seat_id;
-        this.cinemaMovieTime_id = cinemaMovieTime_id;
-        this.ticket_buytime = ticket_buytime;
-        this.ticket_watchtiem = ticket_watchtiem;
+    public Ticket(Integer ticketId, String ticketUuid, String ticketBuytime, String ticketWatchtiem, Integer userId, Integer cinemaId, Integer movieId, Integer seatId, Integer cinemaMovieTimeId) {
+        this.ticketId = ticketId;
+        this.ticketUuid = ticketUuid;
+        this.ticketBuytime = ticketBuytime;
+        this.ticketWatchtiem = ticketWatchtiem;
+        this.userId = userId;
+        this.cinemaId = cinemaId;
+        this.movieId = movieId;
+        this.seatId = seatId;
+        this.cinemaMovieTimeId = cinemaMovieTimeId;
     }
 
-    public Integer getTicket_id() {
-        return ticket_id;
+    public Integer getTicketId() {
+        return ticketId;
     }
 
-    public void setTicket_id(Integer ticket_id) {
-        this.ticket_id = ticket_id;
+    public void setTicketId(Integer ticketId) {
+        this.ticketId = ticketId;
     }
 
-    public String getTicket_uuid() {
-        return ticket_uuid;
+    public String getTicketUuid() {
+        return ticketUuid;
     }
 
-    public void setTicket_uuid(String ticket_uuid) {
-        this.ticket_uuid = ticket_uuid;
+    public void setTicketUuid(String ticketUuid) {
+        this.ticketUuid = ticketUuid;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public String getTicketBuytime() {
+        return ticketBuytime;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setTicketBuytime(String ticketBuytime) {
+        this.ticketBuytime = ticketBuytime;
     }
 
-    public Integer getCinema_id() {
-        return cinema_id;
+    public String getTicketWatchtiem() {
+        return ticketWatchtiem;
     }
 
-    public void setCinema_id(Integer cinema_id) {
-        this.cinema_id = cinema_id;
+    public void setTicketWatchtiem(String ticketWatchtiem) {
+        this.ticketWatchtiem = ticketWatchtiem;
     }
 
-    public Integer getMovie_id() {
-        return movie_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setMovie_id(Integer movie_id) {
-        this.movie_id = movie_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public Integer getSeat_id() {
-        return seat_id;
+    public Integer getCinemaId() {
+        return cinemaId;
     }
 
-    public void setSeat_id(Integer seat_id) {
-        this.seat_id = seat_id;
+    public void setCinemaId(Integer cinemaId) {
+        this.cinemaId = cinemaId;
     }
 
-    public Integer getCinemaMovieTime_id() {
-        return cinemaMovieTime_id;
+    public Integer getMovieId() {
+        return movieId;
     }
 
-    public void setCinemaMovieTime_id(Integer cinemaMovieTime_id) {
-        this.cinemaMovieTime_id = cinemaMovieTime_id;
+    public void setMovieId(Integer movieId) {
+        this.movieId = movieId;
     }
 
-    public String getTicket_buytime() {
-        return ticket_buytime;
+    public Integer getSeatId() {
+        return seatId;
     }
 
-    public void setTicket_buytime(String ticket_buytime) {
-        this.ticket_buytime = ticket_buytime;
+    public void setSeatId(Integer seatId) {
+        this.seatId = seatId;
     }
 
-    public String getTicket_watchtiem() {
-        return ticket_watchtiem;
+    public Integer getCinemaMovieTimeId() {
+        return cinemaMovieTimeId;
     }
 
-    public void setTicket_watchtiem(String ticket_watchtiem) {
-        this.ticket_watchtiem = ticket_watchtiem;
+    public void setCinemaMovieTimeId(Integer cinemaMovieTimeId) {
+        this.cinemaMovieTimeId = cinemaMovieTimeId;
     }
-
 }
