@@ -95,13 +95,13 @@ public class SessionControllerTest {
             }
         }
         CinemaMovieTime cinemaMovieTime = new CinemaMovieTime(1, "电影开始时间", "电影结束时间", 30d, null, null,seatList);
-        CinemaMovieTime save = cinemaMovieTimeRepository.save(cinemaMovieTime);
-        seatRepository.save(new Seat(1, "座位编号", 0, 0, true, 1, 1));
+        CinemaMovieTime saveMovieTime = cinemaMovieTimeRepository.save(cinemaMovieTime);
+        Seat seat = seatRepository.save(new Seat(1, "座位编号", 0, 0, true, saveMovieTime.getCinemaMovieTimeId(), 1));
         //then
-        client.perform(MockMvcRequestBuilders.get("/seat/{cinemaMovieTime_id}", save.getCinemaMovieTimeId()))
+        client.perform(MockMvcRequestBuilders.get("/seat/{cinemaMovieTime_id}", saveMovieTime.getCinemaMovieTimeId()))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].seatRow").value(0))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].seatCol").value(1))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[23].usersGender").value("男"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].seatRow").value(seat.getSeatRow()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].seatCol").value(seat.getSeatCol()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].usersGender").value("男"));
     }
 }
