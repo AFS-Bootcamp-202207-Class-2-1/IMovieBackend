@@ -24,8 +24,12 @@ public class SeatService {
         List<Seat> seatList = seatRepository.findByCinemaMovieTimeId(cinemaMovieTimeId);
         List<SeatInfo> seatInfoList = new ArrayList<>();
         for (Seat seat : seatList) {
-            Users users = usersRepository.findById(seat.getUserId()).get();
-            seatInfoList.add(new SeatInfo(seat.getSeatId(), seat.getSeatName(), seat.getSeatRow(), seat.getSeatCol(), seat.getSeatReserve(), users.getUsersGender()));
+            if (seat.getUsersId() != null){
+                Users users = usersRepository.findById(seat.getUsersId()).get();
+                seatInfoList.add(new SeatInfo(seat.getSeatId(), seat.getSeatName(), seat.getSeatRow(), seat.getSeatCol(), seat.getSeatReserve(), users.getUsersGender()));
+            }else {
+                seatInfoList.add(new SeatInfo(seat.getSeatId(), seat.getSeatName(), seat.getSeatRow(), seat.getSeatCol(), seat.getSeatReserve(), null));
+            }
         }
         return seatInfoList;
     }

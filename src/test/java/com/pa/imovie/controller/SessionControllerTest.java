@@ -1,13 +1,7 @@
 package com.pa.imovie.controller;
 
-import com.pa.imovie.entity.Cinema;
-import com.pa.imovie.entity.CinemaMovie;
-import com.pa.imovie.entity.CinemaMovieTime;
-import com.pa.imovie.entity.Movie;
-import com.pa.imovie.repository.CinemaMovieRepository;
-import com.pa.imovie.repository.CinemaMovieTimeRepository;
-import com.pa.imovie.repository.CinemaRepository;
-import com.pa.imovie.repository.MovieRepository;
+import com.pa.imovie.entity.*;
+import com.pa.imovie.repository.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,17 +36,24 @@ public class SessionControllerTest {
     @Autowired
     private CinemaRepository cinemaRepository;
 
+    @Autowired
+    private SeatRepository seatRepository;
+
+    @Autowired
+    private UsersRepository usersRepository;
+
     @BeforeEach
     void setUp() {
         cinemaMovieRepository.deleteAll();
         cinemaMovieTimeRepository.deleteAll();
         cinemaRepository.deleteAll();
         movieRepository.deleteAll();
-
+        seatRepository.deleteAll();
+        usersRepository.deleteAll();
     }
 
 //    @Test
-//    void should_get_an_movie_when_call_getMovieById_api_given_service_is_up() throws Exception {
+//    void should_get_all_movie_session_when_call_getCinemaMovieTimeList_api_given_service_is_up() throws Exception {
 //        // given
 //        CinemaMovieTime cinemaMovieTime01 = new CinemaMovieTime(1, "开始时间1", "结束时间1", 40d);
 //        CinemaMovieTime cinemaMovieTime02 = new CinemaMovieTime(2, "开始时间2", "结束时间2", 45d);
@@ -77,4 +79,29 @@ public class SessionControllerTest {
 //                .andExpect(MockMvcResultMatchers.jsonPath("$[*].cinemaId", containsInAnyOrder(1, 1, 2, 2)))
 //                .andExpect(MockMvcResultMatchers.jsonPath("$[*].cinemaName", containsInAnyOrder("影院1名字", "影院2名字", "影院1名字", "影院2名字")));
 //    }
+
+    @Test
+    void should_get_all_session_seat_when_call_getSeatList_api_given_service_is_up() throws Exception {
+        // given
+        List<Seat> seatList = new ArrayList<>();
+        for (int i = 0; i < 24; i++) {
+            if (i == 0){
+                Seat seat = new Seat(0, "座位编号", 0, 0, true);
+                List<Seat> UsersSeatList = Arrays.asList(seat);
+                Users users = new Users(1, "", "", "男", UsersSeatList, null);
+                usersRepository.save(users);
+            }else {
+                seatList.add(new Seat(0, "座位编号", i / 6, i % 6, false));
+            }
+        }
+        CinemaMovieTime cinemaMovieTime = new CinemaMovieTime(1, "电影开始时间", "电影结束时间", 30d, null, null,seatList);
+        CinemaMovieTime save = cinemaMovieTimeRepository.save(cinemaMovieTime);
+        seatRepository.save(new Seat(1, "座位编号", 0, 0, true, 1, 1));
+        //then
+        client.perform(MockMvcRequestBuilders.get("/seat/{cinemaMovieTime_id}", save.getCinemaMovieTimeId()))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].seatRow").value(0))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].seatCol").value(1))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[23].usersGender").value("男"));
+    }
 }
