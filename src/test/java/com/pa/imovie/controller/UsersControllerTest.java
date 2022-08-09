@@ -55,15 +55,15 @@ public class UsersControllerTest {
         client.perform(MockMvcRequestBuilders.post("/users/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andExpect(content().string("registered successfully"));
 
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
-        assertThat(findUsers.get(0).getUsers_name(), equalTo("wade"));
-        assertThat(findUsers.get(0).getUsers_password(), equalTo("abc"));
-        assertThat(findUsers.get(0).getUsers_gender(), equalTo("male"));
+        assertThat(findUsers.get(0).getUsersName(), equalTo("wade"));
+        assertThat(findUsers.get(0).getUsersPassword(), equalTo("abc"));
+        assertThat(findUsers.get(0).getUsersGender(), equalTo("male"));
 
     }
 
@@ -79,14 +79,14 @@ public class UsersControllerTest {
         client.perform(MockMvcRequestBuilders.post("/users/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andExpect(content().string("the user alrealy exists"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
-        assertThat(findUsers.get(0).getUsers_name(), equalTo("wade"));
-        assertThat(findUsers.get(0).getUsers_password(), equalTo("abc"));
-        assertThat(findUsers.get(0).getUsers_gender(), equalTo("male"));
+        assertThat(findUsers.get(0).getUsersName(), equalTo("wade"));
+        assertThat(findUsers.get(0).getUsersPassword(), equalTo("abc"));
+        assertThat(findUsers.get(0).getUsersGender(), equalTo("male"));
 
     }
 
@@ -106,8 +106,8 @@ public class UsersControllerTest {
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
-        assertThat(findUsers.get(0).getUsers_name(), equalTo("wade"));
-        assertThat(findUsers.get(0).getUsers_password(), equalTo("abc"));
+        assertThat(findUsers.get(0).getUsersName(), equalTo("wade"));
+        assertThat(findUsers.get(0).getUsersPassword(), equalTo("abc"));
 
     }
 
@@ -129,8 +129,8 @@ public class UsersControllerTest {
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
-        assertThat(findUsers.get(0).getUsers_name(), equalTo("wade"));
-        assertThat(findUsers.get(0).getUsers_password(), equalTo("abc"));
+        assertThat(findUsers.get(0).getUsersName(), equalTo("wade"));
+        assertThat(findUsers.get(0).getUsersPassword(), equalTo("abc"));
 
     }
 
@@ -151,8 +151,8 @@ public class UsersControllerTest {
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
-        assertThat(findUsers.get(0).getUsers_name(), equalTo("wade"));
-        assertThat(findUsers.get(0).getUsers_password(), equalTo("abc"));
+        assertThat(findUsers.get(0).getUsersName(), equalTo("wade"));
+        assertThat(findUsers.get(0).getUsersPassword(), equalTo("abc"));
 
     }
 

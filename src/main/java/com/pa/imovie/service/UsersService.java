@@ -15,7 +15,7 @@ public class UsersService {
 
 
     public String doRegister(Users users){
-        String usersName = users.getUsers_name();
+        String usersName = users.getUsersName();
         Users user = usersRepository.findByUsername(usersName);
         String msg = "";
         if (user == null){
@@ -27,14 +27,16 @@ public class UsersService {
         return msg;
     }
 
-    public String doLogin(String users_name, String users_password) {
-        Users users = usersRepository.findUsersByUsernameAndPassword(users_name,users_password);
+    public String doLogin(Users users) {
+        String users_name = users.getUsersName();
+        String users_password = users.getUsersPassword();
+        Users findUser = usersRepository.findUsersByUsernameAndPassword(users_name,users_password);
         String msg = "";
-        if (users == null){
+        if (findUser == null){
             msg = "the username and password are inconsistent";
             return msg;
         }
-        msg = " login successfully";
+        msg = "login successfully";
         return msg;
     }
 }
