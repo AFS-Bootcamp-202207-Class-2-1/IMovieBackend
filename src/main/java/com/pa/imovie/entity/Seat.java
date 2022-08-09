@@ -14,7 +14,7 @@ public class Seat {
     private Integer seatCol;
     private Boolean seatReserve;
 
-    private Integer cinemaMovieTime;
+    private Integer cinemaMovieTimeId;
     private Integer userId;
 
     @OneToOne
@@ -32,25 +32,14 @@ public class Seat {
         this.seatReserve = seatReserve;
     }
 
-    public Seat(Integer seatId, String seatName, Integer seatRow, Integer seatCol, Boolean seatReserve, Integer cinemaMovieTime, Integer userId) {
+    public Seat(Integer seatId, String seatName, Integer seatRow, Integer seatCol, Boolean seatReserve, Integer cinemaMovieTimeId, Integer userId) {
         this.seatId = seatId;
         this.seatName = seatName;
         this.seatRow = seatRow;
         this.seatCol = seatCol;
         this.seatReserve = seatReserve;
-        this.cinemaMovieTime = cinemaMovieTime;
+        this.cinemaMovieTimeId = cinemaMovieTimeId;
         this.userId = userId;
-    }
-
-    public Seat(Integer seatId, String seatName, Integer seatRow, Integer seatCol, Boolean seatReserve, Integer cinemaMovieTime, Integer userId, Ticket ticket) {
-        this.seatId = seatId;
-        this.seatName = seatName;
-        this.seatRow = seatRow;
-        this.seatCol = seatCol;
-        this.seatReserve = seatReserve;
-        this.cinemaMovieTime = cinemaMovieTime;
-        this.userId = userId;
-        this.ticket = ticket;
     }
 
     public Integer getSeatId() {
@@ -93,12 +82,12 @@ public class Seat {
         this.seatReserve = seatReserve;
     }
 
-    public Integer getCinemaMovieTime() {
-        return cinemaMovieTime;
+    public Integer getCinemaMovieTimeId() {
+        return cinemaMovieTimeId;
     }
 
-    public void setCinemaMovieTime(Integer cinemaMovieTime) {
-        this.cinemaMovieTime = cinemaMovieTime;
+    public void setCinemaMovieTimeId(Integer cinemaMovieTimeId) {
+        this.cinemaMovieTimeId = cinemaMovieTimeId;
     }
 
     public Integer getUserId() {
