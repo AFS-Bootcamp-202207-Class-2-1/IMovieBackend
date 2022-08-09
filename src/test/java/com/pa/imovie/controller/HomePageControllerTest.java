@@ -49,9 +49,9 @@ class HomePageControllerTest {
         client.perform(MockMvcRequestBuilders.get("/home/movieInfo"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(1)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].movie_id").isNumber())
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].movie_name").value("电影名字"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].movie_image").value("图片url"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].movieId").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].movieName").value("电影名字"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].movieImage").value("图片url"));
     }
 
 }

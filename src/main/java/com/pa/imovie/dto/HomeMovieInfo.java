@@ -1,60 +1,60 @@
 package com.pa.imovie.dto;
 
 public class HomeMovieInfo {
-    private int movie_id;
-    private String movie_name;
-    private String movie_introduce;
-    private String movie_image;
-    private Double movie_score;
+    private int movieId;
+    private String movieName;
+    private String movieIntroduce;
+    private String movieImage;
+    private Double movieScore;
 
     public HomeMovieInfo() {
     }
 
-    public int getMovie_id() {
-        return movie_id;
+    public HomeMovieInfo(int movieId, String movieName, String movieIntroduce, String movieImage, Double movieScore) {
+        this.movieId = movieId;
+        this.movieName = movieName;
+        this.movieIntroduce = movieIntroduce;
+        this.movieImage = movieImage;
+        this.movieScore = movieScore;
     }
 
-    public void setMovie_id(int movie_id) {
-        this.movie_id = movie_id;
+    public int getMovieId() {
+        return movieId;
     }
 
-    public String getMovie_name() {
-        return movie_name;
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
     }
 
-    public void setMovie_name(String movie_name) {
-        this.movie_name = movie_name;
+    public String getMovieName() {
+        return movieName;
     }
 
-    public String getMovie_introduce() {
-        return movie_introduce;
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
     }
 
-    public void setMovie_introduce(String movie_introduce) {
-        this.movie_introduce = movie_introduce;
+    public String getMovieIntroduce() {
+        return movieIntroduce;
     }
 
-    public String getMovie_image() {
-        return movie_image;
+    public void setMovieIntroduce(String movieIntroduce) {
+        this.movieIntroduce = movieIntroduce;
     }
 
-    public void setMovie_image(String movie_image) {
-        this.movie_image = movie_image;
+    public String getMovieImage() {
+        return movieImage;
     }
 
-    public Double getMovie_score() {
-        return movie_score;
+    public void setMovieImage(String movieImage) {
+        this.movieImage = movieImage;
     }
 
-    public void setMovie_score(Double movie_score) {
-        this.movie_score = movie_score;
+    public Double getMovieScore() {
+        return movieScore;
     }
 
-    public HomeMovieInfo(int movie_id, String movie_name, String movie_introduce, String movie_image, Double movie_score) {
-        this.movie_id = movie_id;
-        this.movie_name = movie_name;
-        this.movie_introduce = movie_introduce;
-        this.movie_image = movie_image;
-        this.movie_score = movie_score;
+    public void setMovieScore(Double movieScore) {
+        this.movieScore = movieScore;
     }
 }

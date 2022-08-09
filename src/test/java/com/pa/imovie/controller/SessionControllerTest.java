@@ -45,6 +45,9 @@ public class SessionControllerTest {
     void setUp() {
         cinemaMovieRepository.deleteAll();
         cinemaMovieTimeRepository.deleteAll();
+        cinemaRepository.deleteAll();
+        movieRepository.deleteAll();
+
     }
 
     @Test
