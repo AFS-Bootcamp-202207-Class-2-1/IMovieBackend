@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/users")
 public class UsersController {
@@ -23,9 +25,8 @@ public class UsersController {
 
     }
 
-
     @PostMapping("login")
-    public String doLogin(@RequestBody Users users){
+    public Map doLogin(@RequestBody Users users){
         return usersService.doLogin(users);
     }
 
