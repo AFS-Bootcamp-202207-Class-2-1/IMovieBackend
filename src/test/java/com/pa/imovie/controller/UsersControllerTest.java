@@ -80,7 +80,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isCreated())
-                .andExpect(content().string("the user already exists"));
+                .andExpect(content().string("the user alrealy exists"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
@@ -102,7 +102,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("{\"msg\":\"login successfully\",\"username\":\"wade\"}"));
+                .andExpect(content().string("{\"msg\":\"login successfully\",\"userGender\":\"\",\"userName\":\"wade\"}"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
@@ -125,7 +125,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("{\"msg\":\"the username and password are inconsistent\",\"userGender\":\"\",\"username\":\"\"}"));
+                .andExpect(content().string("{\"msg\":\"the username and password are inconsistent\",\"userGender\":\"\",\"userName\":\"\"}"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
@@ -147,7 +147,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("{\"msg\":\"the username and password are inconsistent\",\"userGender\":\"\",\"username\":\"\"}"));
+                .andExpect(content().string("{\"msg\":\"the username and password are inconsistent\",\"userGender\":\"\",\"userName\":\"\"}"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
