@@ -102,7 +102,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("login successfully"));
+                .andExpect(content().string("{\"msg\":\"login successfully\",\"username\":\"wade\"}"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
@@ -125,7 +125,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("the username and password are inconsistent"));
+                .andExpect(content().string("{\"msg\":\"the username and password are inconsistent\",\"username\":\"\"}"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
