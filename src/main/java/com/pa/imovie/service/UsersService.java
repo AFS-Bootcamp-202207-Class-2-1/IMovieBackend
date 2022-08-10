@@ -38,12 +38,14 @@ public class UsersService {
         Users findUser = usersRepository.findUsersByUsernameAndPassword(users_name,users_password);
         if (findUser == null) {
             map.put("msg","the username and password are inconsistent");
-            map.put("username","");
+            map.put("userName","");
+            map.put("userGender","");
             return map;
         }
         StpUtil.login(users_name);
         map.put("msg","login successfully");
-        map.put("username",StpUtil.getLoginIdAsString());
+        map.put("userName",StpUtil.getLoginIdAsString());
+        map.put("userGender",findUser.getUsersGender());
         return map;
 
     }
