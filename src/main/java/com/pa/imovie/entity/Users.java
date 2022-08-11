@@ -1,5 +1,7 @@
 package com.pa.imovie.entity;
 
+import com.pa.imovie.repository.UsersRepository;
+
 import javax.persistence.*;
 import java.util.List;
 

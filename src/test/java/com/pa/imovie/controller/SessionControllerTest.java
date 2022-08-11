@@ -84,6 +84,37 @@ public class SessionControllerTest {
 //    }
 
 //    @Test
+//    void should_get_all_movie_session_when_call_getCinemaMovieTimeListByDate_api_given_service_is_up() throws Exception {
+//        // given
+//        CinemaMovieTime cinemaMovieTime01 = new CinemaMovieTime(1, "2022-01-02 12:30", "结束时间1", 40d);
+//        CinemaMovieTime cinemaMovieTime02 = new CinemaMovieTime(2, "2022-01-03 14:30", "结束时间2", 45d);
+//        List<CinemaMovieTime> cinemaMovieTimeList01 = Arrays.asList(cinemaMovieTime01, cinemaMovieTime02);
+//        CinemaMovieTime cinemaMovieTime03 = new CinemaMovieTime(3, "2022-01-04 12:30", "结束时间1", 40d);
+//        CinemaMovieTime cinemaMovieTime04 = new CinemaMovieTime(4, "2022-01-02 12:30", "结束时间2", 45d);
+//        List<CinemaMovieTime> cinemaMovieTimeList02 = Arrays.asList(cinemaMovieTime03, cinemaMovieTime04);
+//        Cinema cinema01 = new Cinema(1, "影院1名字", "", "");
+//        cinemaRepository.save(cinema01);
+//        Cinema cinema02 = new Cinema(2, "影院2名字", "", "");
+//        cinemaRepository.save(cinema02);
+//        CinemaMovie cinemaMovie01 = new CinemaMovie(1, 1, 1, cinemaMovieTimeList01);
+//        CinemaMovie cinemaMovie02 = new CinemaMovie(2, 2, 1, cinemaMovieTimeList02);
+//        List<CinemaMovie> cinemaMovieList = Arrays.asList(cinemaMovie01, cinemaMovie02);
+//        Movie movie = new Movie(1, "电影名字", "电影url", "电影种类", "电影演员", "电影介绍", "电影上映时间", "电影版本", 120, 9d, cinemaMovieList, null, null);
+//        Movie save = movieRepository.save(movie);
+//        String dateJsonStr = "2022-01-02";
+//        //then
+//        client.perform(MockMvcRequestBuilders.post("/session/{movieId}", save.getMovieId())
+//                    .contentType(MediaType.APPLICATION_JSON)
+//                    .content(dateJsonStr))
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$[*].cinemaMovieTimeId", containsInAnyOrder(1, 4)))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$[*].cinemaMovieTimeWatchtime", containsInAnyOrder("2022-01-02 12:30", "2022-01-02 12:30")))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$[*].cinemaMovieTimePrice", containsInAnyOrder(40d, 45d)))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$[*].cinemaId", containsInAnyOrder(1, 2)))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$[*].cinemaName", containsInAnyOrder("影院1名字", "影院2名字")));
+//    }
+
+//    @Test
 //    void should_get_all_session_seat_when_call_getSeatList_api_given_service_is_up() throws Exception {
 //        // given
 //        List<Seat> seatList = new ArrayList<>();
@@ -108,32 +139,24 @@ public class SessionControllerTest {
 //                .andExpect(MockMvcResultMatchers.jsonPath("$[23].usersGender").value("男"));
 //    }
 
-    @Test
-    void should_buy_ticket_when_call_buySeat_api_given_service_is_up() throws Exception {
-        // given
-        List<Seat> seatList = new ArrayList<>();
-        for (int i = 0; i < 24; i++) {
-            if (i == 0){
-                Seat seat = new Seat(0, "座位编号", 0, 0, true);
-                List<Seat> UsersSeatList = Arrays.asList(seat);
-                Users users = new Users(1, "", "", "男", UsersSeatList, null);
-                usersRepository.save(users);
-            }else {
-                seatList.add(new Seat(0, "座位编号", i / 6, i % 6, false));
-            }
-        }
-        CinemaMovieTime cinemaMovieTime = new CinemaMovieTime(1, "电影开始时间", "电影结束时间", 30d, null, null,seatList);
-        CinemaMovieTime save = cinemaMovieTimeRepository.save(cinemaMovieTime);
-        seatRepository.save(new Seat(1, "座位编号", 0, 0, true, 1, 1));
-        BuyInfo buyInfo = new BuyInfo(1, 1, 1, 1, Arrays.asList(2, 3));
-        String buyInfoJsonStr = new ObjectMapper().writeValueAsString(buyInfo);
-        //then
-        client.perform(MockMvcRequestBuilders.post("/seat")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(buyInfoJsonStr))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].seatReserve").value(true))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[1].seatReserve").value(true));
-    }
+//    @Test
+//    void should_buy_ticket_when_call_buySeat_api_given_service_is_up() throws Exception {
+//        // given
+//        List<Seat> seatList = new ArrayList<>();
+//        for (int i = 0; i < 24; i++) {
+//            seatList.add(new Seat(0, "座位编号", i / 6, i % 6, false));
+//        }
+//        CinemaMovieTime cinemaMovieTime = new CinemaMovieTime(1, "电影开始时间", "电影结束时间", 30d, null, null,seatList);
+//        CinemaMovieTime save = cinemaMovieTimeRepository.save(cinemaMovieTime);
+//        BuyInfo buyInfo = new BuyInfo(73, 1, 1, 1, save.getCinemaMovieTimeId(), Arrays.asList(2, 3));
+//        String buyInfoJsonStr = new ObjectMapper().writeValueAsString(buyInfo);
+//        //then
+//        client.perform(MockMvcRequestBuilders.post("/seat")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(buyInfoJsonStr))
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$[0].seatReserve").value(true))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$[1].seatReserve").value(true));
+//    }
 
 }

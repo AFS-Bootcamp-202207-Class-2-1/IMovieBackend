@@ -11,33 +11,34 @@ public class Ticket {
     private Integer ticketId;
     private String ticketUuid;
     private String ticketBuytime;
-    private String ticketWatchtiem;
+    private Integer ticketPrice;
+    private String ticketSeatInfo;
 
     private Integer usersId;
     private Integer cinemaId;
     private Integer movieId;
-    private Integer seatId;
     private Integer cinemaMovieTimeId;
 
     public Ticket() {
     }
 
-    public Ticket(Integer ticketId, String ticketUuid, String ticketBuytime, String ticketWatchtiem) {
+    public Ticket(Integer ticketId, String ticketUuid, String ticketBuytime, Integer ticketPrice, String ticketSeatInfo) {
         this.ticketId = ticketId;
         this.ticketUuid = ticketUuid;
         this.ticketBuytime = ticketBuytime;
-        this.ticketWatchtiem = ticketWatchtiem;
+        this.ticketPrice = ticketPrice;
+        this.ticketSeatInfo = ticketSeatInfo;
     }
 
-    public Ticket(Integer ticketId, String ticketUuid, String ticketBuytime, String ticketWatchtiem, Integer usersId, Integer cinemaId, Integer movieId, Integer seatId, Integer cinemaMovieTimeId) {
+    public Ticket(Integer ticketId, String ticketUuid, String ticketBuytime, Integer ticketPrice, String ticketSeatInfo, Integer usersId, Integer cinemaId, Integer movieId, Integer cinemaMovieTimeId) {
         this.ticketId = ticketId;
         this.ticketUuid = ticketUuid;
         this.ticketBuytime = ticketBuytime;
-        this.ticketWatchtiem = ticketWatchtiem;
+        this.ticketPrice = ticketPrice;
+        this.ticketSeatInfo = ticketSeatInfo;
         this.usersId = usersId;
         this.cinemaId = cinemaId;
         this.movieId = movieId;
-        this.seatId = seatId;
         this.cinemaMovieTimeId = cinemaMovieTimeId;
     }
 
@@ -65,12 +66,20 @@ public class Ticket {
         this.ticketBuytime = ticketBuytime;
     }
 
-    public String getTicketWatchtiem() {
-        return ticketWatchtiem;
+    public Integer getTicketPrice() {
+        return ticketPrice;
     }
 
-    public void setTicketWatchtiem(String ticketWatchtiem) {
-        this.ticketWatchtiem = ticketWatchtiem;
+    public void setTicketPrice(Integer ticketPrice) {
+        this.ticketPrice = ticketPrice;
+    }
+
+    public String getTicketSeatInfo() {
+        return ticketSeatInfo;
+    }
+
+    public void setTicketSeatInfo(String ticketSeatInfo) {
+        this.ticketSeatInfo = ticketSeatInfo;
     }
 
     public Integer getUsersId() {
@@ -95,14 +104,6 @@ public class Ticket {
 
     public void setMovieId(Integer movieId) {
         this.movieId = movieId;
-    }
-
-    public Integer getSeatId() {
-        return seatId;
-    }
-
-    public void setSeatId(Integer seatId) {
-        this.seatId = seatId;
     }
 
     public Integer getCinemaMovieTimeId() {

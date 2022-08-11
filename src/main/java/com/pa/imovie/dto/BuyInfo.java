@@ -4,6 +4,7 @@ import java.util.List;
 
 public class BuyInfo {
 
+    private Integer ticketPrice;
     private Integer usersId;
     private Integer cinemaId;
     private Integer movieId;
@@ -13,12 +14,21 @@ public class BuyInfo {
     public BuyInfo() {
     }
 
-    public BuyInfo(Integer usersId, Integer cinemaId, Integer movieId, Integer cinemaMovieTimeId, List<Integer> boughtSeatIdList) {
+    public BuyInfo(Integer ticketPrice, Integer usersId, Integer cinemaId, Integer movieId, Integer cinemaMovieTimeId, List<Integer> boughtSeatIdList) {
+        this.ticketPrice = ticketPrice;
         this.usersId = usersId;
         this.cinemaId = cinemaId;
         this.movieId = movieId;
         this.cinemaMovieTimeId = cinemaMovieTimeId;
         this.boughtSeatIdList = boughtSeatIdList;
+    }
+
+    public Integer getTicketPrice() {
+        return ticketPrice;
+    }
+
+    public void setTicketPrice(Integer ticketPrice) {
+        this.ticketPrice = ticketPrice;
     }
 
     public Integer getUsersId() {

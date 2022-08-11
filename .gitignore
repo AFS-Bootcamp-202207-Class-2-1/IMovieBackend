@@ -17,6 +17,7 @@
 *.iml
 *.ipr
 *.yml
+*.hprof
 /out/
 
 ### NetBeans ###
@@ -31,3 +32,6 @@ docs/tmp
 /src/main/resources/
 
 /src/test/resources/
+
+*.hprof.*
+*.ij

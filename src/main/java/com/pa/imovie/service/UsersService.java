@@ -35,15 +35,20 @@ public class UsersService {
         Map<String,String> map = new HashMap<>();
         String users_name = users.getUsersName();
         String users_password = users.getUsersPassword();
+
+
         Users findUser = usersRepository.findUsersByUsernameAndPassword(users_name,users_password);
         if (findUser == null) {
             map.put("msg","the username and password are inconsistent");
             map.put("userName","");
             map.put("userGender","");
+            map.put("userId","");
             return map;
         }
+        String userId = String.valueOf(findUser.getUsersId());
         StpUtil.login(users_name);
         map.put("msg","login successfully");
+        map.put("userId",userId);
         map.put("userName",StpUtil.getLoginIdAsString());
         map.put("userGender",findUser.getUsersGender());
         return map;

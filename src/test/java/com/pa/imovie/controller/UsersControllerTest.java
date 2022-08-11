@@ -44,7 +44,6 @@ public class UsersControllerTest {
     }
 
 
-
     //Test:注册成功
     @Test
     void should_register_succeed_and_return_message_registered_successfully_when_call_register_api_given_an_unregistered_user() throws Exception {
@@ -80,7 +79,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isCreated())
-                .andExpect(content().string("the user alrealy exists"));
+                .andExpect(content().string("the user already exists"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
@@ -102,7 +101,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("{\"msg\":\"login successfully\",\"userGender\":\"\",\"userName\":\"wade\"}"));
+                .andExpect(content().string("{\"msg\":\"login successfully\",\"username\":\"wade\"}"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
@@ -125,7 +124,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("{\"msg\":\"the username and password are inconsistent\",\"userGender\":\"\",\"userName\":\"\"}"));
+                .andExpect(content().string("{\"msg\":\"login successfully\",\"userGender\":\"\",\"userName\":\"wade\",\"userId\":\"1\"}"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
@@ -147,7 +146,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("{\"msg\":\"the username and password are inconsistent\",\"userGender\":\"\",\"userName\":\"\"}"));
+                .andExpect(content().string("{\"msg\":\"the username and password are inconsistent\",\"userGender\":\"\",\"userName\":\"\",\"userId\":\"\"}"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));

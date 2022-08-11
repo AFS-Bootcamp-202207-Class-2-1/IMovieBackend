@@ -17,10 +17,6 @@ public class Seat {
     private Integer cinemaMovieTimeId;
     private Integer usersId;
 
-    @OneToOne
-    @JoinColumn(name = "seatId")
-    private Ticket ticket;
-
     public Seat() {
     }
 
@@ -40,17 +36,6 @@ public class Seat {
         this.seatReserve = seatReserve;
         this.cinemaMovieTimeId = cinemaMovieTimeId;
         this.usersId = usersId;
-    }
-
-    public Seat(Integer seatId, String seatName, Integer seatRow, Integer seatCol, Boolean seatReserve, Integer cinemaMovieTimeId, Integer usersId, Ticket ticket) {
-        this.seatId = seatId;
-        this.seatName = seatName;
-        this.seatRow = seatRow;
-        this.seatCol = seatCol;
-        this.seatReserve = seatReserve;
-        this.cinemaMovieTimeId = cinemaMovieTimeId;
-        this.usersId = usersId;
-        this.ticket = ticket;
     }
 
     public Integer getSeatId() {
@@ -107,13 +92,5 @@ public class Seat {
 
     public void setUsersId(Integer usersId) {
         this.usersId = usersId;
-    }
-
-    public Ticket getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
     }
 }

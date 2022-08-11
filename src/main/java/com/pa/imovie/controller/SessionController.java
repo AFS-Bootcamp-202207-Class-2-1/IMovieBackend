@@ -3,10 +3,7 @@ package com.pa.imovie.controller;
 import com.pa.imovie.dto.CinemaMovieItem;
 import com.pa.imovie.service.CinemaMovieTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +19,9 @@ public class SessionController {
         return cinemaMovieTimeService.getCinemaMovieTimeListByMovieId(movie_id);
     }
 
-
+    @PostMapping("/{movie_id}")
+    public List<CinemaMovieItem> getCinemaMovieTimeListByDate(@PathVariable Integer movie_id, @RequestBody String cinemaMovieTime_watchtime) {
+        return cinemaMovieTimeService.getCinemaMovieTimeListByMovieIdAndDate(movie_id, cinemaMovieTime_watchtime);
+    }
 
 }

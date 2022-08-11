@@ -38,7 +38,7 @@ public class Movie {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "movieId")
-    private List<Category> categories;
+    private List<MovieCategory> movieCategories;
 
     public Movie() {
     }
@@ -72,7 +72,7 @@ public class Movie {
         this.detailImages = detailImages;
     }
 
-    public Movie(Integer movieId, String movieName, String movieImage, String movieCatagory, String moviePerformers, String movieIntroduce, String movieReleasetime, String movieVersion, Integer movieTime, Double movieScore, List<CinemaMovie> cinemaMovies, List<Ticket> tickets, List<DetailImage> detailImages, List<Comment> comments, List<Category> categories) {
+    public Movie(Integer movieId, String movieName, String movieImage, String movieCatagory, String moviePerformers, String movieIntroduce, String movieReleasetime, String movieVersion, Integer movieTime, Double movieScore, List<CinemaMovie> cinemaMovies, List<Ticket> tickets, List<DetailImage> detailImages, List<Comment> comments, List<MovieCategory> movieCategories) {
         this.movieId = movieId;
         this.movieName = movieName;
         this.movieImage = movieImage;
@@ -87,7 +87,7 @@ public class Movie {
         this.tickets = tickets;
         this.detailImages = detailImages;
         this.comments = comments;
-        this.categories = categories;
+        this.movieCategories = movieCategories;
     }
 
     public Integer getMovieId() {
@@ -202,11 +202,11 @@ public class Movie {
         this.comments = comments;
     }
 
-    public List<Category> getCategories() {
-        return categories;
+    public List<MovieCategory> getMovieCategories() {
+        return movieCategories;
     }
 
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
+    public void setMovieCategories(List<MovieCategory> movieCategories) {
+        this.movieCategories = movieCategories;
     }
 }
