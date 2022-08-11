@@ -35,4 +35,9 @@ public class CategoryController {
         return movieService.getAllMovieLimited(page, pageSize);
     }
 
+    @GetMapping("/search")
+    public List<CategoryMovieInfo> findByNameLike(@RequestParam String name, @RequestParam Integer page, @RequestParam Integer pageSize) {
+        return movieService.findByNameLike("%"+name+"%", page, pageSize);
+    }
+
 }

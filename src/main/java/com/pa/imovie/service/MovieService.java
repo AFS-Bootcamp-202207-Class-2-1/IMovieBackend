@@ -59,4 +59,8 @@ public class MovieService {
         }
         return categoryMovieInfoList;
     }
+
+    public List<CategoryMovieInfo> findByNameLike(String name, Integer page, Integer pageSize) {
+        return null;
+    }
 }
