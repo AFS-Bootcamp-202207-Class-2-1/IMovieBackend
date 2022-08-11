@@ -1,10 +1,11 @@
 package com.pa.imovie.service;
 
-import com.pa.imovie.dto.CategoryMoviePageInfo;
-import com.pa.imovie.dto.CategoryMovieInfo;
-import com.pa.imovie.dto.HomeMovieInfo;
+import com.pa.imovie.dto.*;
+import com.pa.imovie.entity.Comment;
 import com.pa.imovie.entity.Movie;
+import com.pa.imovie.entity.Users;
 import com.pa.imovie.repository.MovieRepository;
+import com.pa.imovie.repository.UsersRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -20,8 +21,17 @@ public class MovieService {
     @Autowired
     MovieRepository movieRepository;
 
-    public Movie getMovieById(Integer movie_id) {
-        return movieRepository.findById(movie_id).get();
+    @Autowired
+    UsersRepository usersRepository;
+
+    public MovieDetailInfo getMovieById(Integer movie_id) {
+        Movie movie = movieRepository.findById(movie_id).get();
+        List<CommentInfo> commentInfoList = new ArrayList<>();
+        for (Comment comment : movie.getComments()) {
+            Users users = usersRepository.findById(comment.getUsersId()).get();
+            commentInfoList.add(new CommentInfo(comment.getCommentId(), comment.getCommentTime(), comment.getCommentContent(), users));
+        }
+        return new MovieDetailInfo(movie.getMovieId(), movie.getMovieName(), movie.getMovieImage(), movie.getMovieCatagory(), movie.getMoviePerformers(), movie.getMovieIntroduce(), movie.getMovieReleasetime(), movie.getMovieVersion(), movie.getMovieTime(), movie.getMovieScore(), movie.getCinemaMovies(), movie.getDetailImages(), commentInfoList);
     }
 
     public List<HomeMovieInfo> getHomePageMovie() {

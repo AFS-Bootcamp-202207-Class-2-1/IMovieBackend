@@ -77,7 +77,7 @@ public class TickerControllerTest {
         String seatStrs = saveSeat2.getSeatId() + " " + saveSeat3.getSeatId();
         Ticket ticket = new Ticket(1,"123","2022-08-10",20, seatStrs,saveUser.getUsersId(),saveCinema.getCinemaId(),saveMovie.getMovieId(),saveCinemaMovieTime.getCinemaMovieTimeId());
         Ticket newticket = ticketRepository.save(ticket);
-        client.perform(MockMvcRequestBuilders.get("/ticket/delete/{ticketId}",newticket.getTicketId()))
+        client.perform(MockMvcRequestBuilders.delete("/ticket/delete/{ticketId}",newticket.getTicketId()))
                         .andExpect(MockMvcResultMatchers.status().isOk())
                         .andExpect(content().string("delete ticket successfully"));
 

@@ -1,5 +1,6 @@
 package com.pa.imovie.controller;
 
+import com.pa.imovie.dto.MovieDetailInfo;
 import com.pa.imovie.entity.Movie;
 import com.pa.imovie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class DetailController {
     MovieService movieService;
 
     @GetMapping("/{movie_id}")
-    public Movie getMovieById(@PathVariable Integer movie_id) {
+    public MovieDetailInfo getMovieById(@PathVariable Integer movie_id) {
         return movieService.getMovieById(movie_id);
     }
 
