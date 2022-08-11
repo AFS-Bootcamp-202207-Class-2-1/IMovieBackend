@@ -2,6 +2,7 @@ package com.pa.imovie.dto;
 
 public class TicketOrderInfo {
 
+    private Integer movieId;
     private Integer ticketId;
     private String movieImage;
     private String movieName;
@@ -16,7 +17,8 @@ public class TicketOrderInfo {
     public TicketOrderInfo() {
     }
 
-    public TicketOrderInfo(Integer ticketId, String movieImage, String movieName, String ticketBuytime, String ticketUuid, Integer ticketPrice, String cinemaAddress, String cinemaName, String cinemaMovieTimeWatchtime, String seatInfo) {
+    public TicketOrderInfo(Integer movieId, Integer ticketId, String movieImage, String movieName, String ticketBuytime, String ticketUuid, Integer ticketPrice, String cinemaAddress, String cinemaName, String cinemaMovieTimeWatchtime, String seatInfo) {
+        this.movieId = movieId;
         this.ticketId = ticketId;
         this.movieImage = movieImage;
         this.movieName = movieName;
@@ -27,6 +29,14 @@ public class TicketOrderInfo {
         this.cinemaName = cinemaName;
         this.cinemaMovieTimeWatchtime = cinemaMovieTimeWatchtime;
         this.seatInfo = seatInfo;
+    }
+
+    public Integer getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(Integer movieId) {
+        this.movieId = movieId;
     }
 
     public Integer getTicketId() {

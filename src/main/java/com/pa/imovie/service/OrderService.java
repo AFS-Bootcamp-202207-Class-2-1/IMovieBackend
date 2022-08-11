@@ -63,7 +63,7 @@ public class OrderService {
                 seat.setSeatCol(seat.getSeatCol() + 1);
                 seatret += seat.getSeatRow() + "排" + seat.getSeatCol() + "座 ";
             }
-            ticketOrderInfoList.add(new TicketOrderInfo(ticket.getTicketId(), movie.getMovieImage(), movie.getMovieName(), ticket.getTicketBuytime(), ticket.getTicketUuid(), ticket.getTicketPrice(), cinema.getCinemaAddress(), cinema.getCinemaName(), cinemaMovieTime.getCinemaMovieTimeWatchtime(), seatret));
+            ticketOrderInfoList.add(new TicketOrderInfo(movie.getMovieId(), ticket.getTicketId(), movie.getMovieImage(), movie.getMovieName(), ticket.getTicketBuytime(), ticket.getTicketUuid(), ticket.getTicketPrice(), cinema.getCinemaAddress(), cinema.getCinemaName(), cinemaMovieTime.getCinemaMovieTimeWatchtime(), seatret));
         }
         return ticketOrderInfoList;
     }
