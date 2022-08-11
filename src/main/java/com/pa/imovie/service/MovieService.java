@@ -29,7 +29,7 @@ public class MovieService {
         List<CommentDetailInfo> commentInfoList = new ArrayList<>();
         for (Comment comment : movie.getComments()) {
             Users users = usersRepository.findById(comment.getUsersId()).get();
-            commentInfoList.add(new CommentDetailInfo(comment.getCommentId(), comment.getCommentTime(), comment.getCommentContent(), users));
+            commentInfoList.add(new CommentDetailInfo(comment.getCommentId(), comment.getCommentTime(), comment.getCommentContent(), users.getUsersName(), users.getUsersGender()));
         }
         return new MovieDetailInfo(movie.getMovieId(), movie.getMovieName(), movie.getMovieImage(), movie.getMovieCatagory(), movie.getMoviePerformers(), movie.getMovieIntroduce(), movie.getMovieReleasetime(), movie.getMovieVersion(), movie.getMovieTime(), movie.getMovieScore(), movie.getCinemaMovies(), movie.getDetailImages(), commentInfoList);
     }

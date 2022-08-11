@@ -7,16 +7,18 @@ public class CommentDetailInfo {
     private Integer commentId;
     private String commentTime;
     private String commentContent;
-    private Users users;
+    private String usersName;
+    private String usersGender;
 
     public CommentDetailInfo() {
     }
 
-    public CommentDetailInfo(Integer commentId, String commentTime, String commentContent, Users users) {
+    public CommentDetailInfo(Integer commentId, String commentTime, String commentContent, String usersName, String usersGender) {
         this.commentId = commentId;
         this.commentTime = commentTime;
         this.commentContent = commentContent;
-        this.users = users;
+        this.usersName = usersName;
+        this.usersGender = usersGender;
     }
 
     public Integer getCommentId() {
@@ -43,11 +45,19 @@ public class CommentDetailInfo {
         this.commentContent = commentContent;
     }
 
-    public Users getUsers() {
-        return users;
+    public String getUsersName() {
+        return usersName;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setUsersName(String usersName) {
+        this.usersName = usersName;
+    }
+
+    public String getUsersGender() {
+        return usersGender;
+    }
+
+    public void setUsersGender(String usersGender) {
+        this.usersGender = usersGender;
     }
 }
