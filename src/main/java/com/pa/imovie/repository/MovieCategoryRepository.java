@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface MovieCategoryRepository extends JpaRepository<MovieCategory, Integer> {
 
+    List<MovieCategory> findByCategoryId(Integer CategoryId);
     List<MovieCategory> findByCategoryId(Integer CategoryId, PageRequest pageRequest);
 
 }

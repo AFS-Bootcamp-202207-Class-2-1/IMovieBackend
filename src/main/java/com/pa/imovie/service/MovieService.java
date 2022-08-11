@@ -1,9 +1,9 @@
 package com.pa.imovie.service;
 
+import com.pa.imovie.dto.CategoryMoviePageInfo;
 import com.pa.imovie.dto.CategoryMovieInfo;
 import com.pa.imovie.dto.HomeMovieInfo;
 import com.pa.imovie.entity.Movie;
-import com.pa.imovie.entity.MovieCategory;
 import com.pa.imovie.repository.MovieRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,17 +50,24 @@ public class MovieService {
 //        return movieRepository.findAll();
     }
 
-    public List<CategoryMovieInfo> getAllMovieLimited(Integer page, Integer pageSize) {
+    public CategoryMoviePageInfo getAllMovieLimited(Integer page, Integer pageSize) {
+        List<Movie> allMovieList =  movieRepository.findAll();
         PageRequest pageRequest = PageRequest.of(page - 1, pageSize);
         List<Movie> movieList =  movieRepository.findAll(pageRequest).toList();
         List<CategoryMovieInfo> categoryMovieInfoList = new ArrayList<>();
         for (Movie movie : movieList) {
             categoryMovieInfoList.add(new CategoryMovieInfo(movie.getMovieId(), movie.getMovieName(), movie.getMovieImage(), movie.getMovieScore()));
         }
-        return categoryMovieInfoList;
+        return new CategoryMoviePageInfo(allMovieList.size(), categoryMovieInfoList);
     }
 
     public List<CategoryMovieInfo> findByNameLike(String name, Integer page, Integer pageSize) {
-        return null;
+        PageRequest pageRequest = PageRequest.of(page - 1, pageSize);
+        List<Movie> movieList = movieRepository.findByMovieNameLike(name, pageRequest);
+        List<CategoryMovieInfo> categoryMovieInfoList = new ArrayList<>();
+        for (Movie movie : movieList) {
+            categoryMovieInfoList.add(new CategoryMovieInfo(movie.getMovieId(), movie.getMovieName(), movie.getMovieImage(), movie.getMovieScore()));
+        }
+        return categoryMovieInfoList;
     }
 }

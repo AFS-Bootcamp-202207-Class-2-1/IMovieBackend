@@ -19,8 +19,8 @@ public class SessionController {
         return cinemaMovieTimeService.getCinemaMovieTimeListByMovieId(movie_id);
     }
 
-    @PostMapping("/{movie_id}")
-    public List<CinemaMovieItem> getCinemaMovieTimeListByDate(@PathVariable Integer movie_id, @RequestBody String cinemaMovieTime_watchtime) {
+    @GetMapping("/time/{movie_id}")
+    public List<CinemaMovieItem> getCinemaMovieTimeListByDate(@PathVariable Integer movie_id, @RequestParam String cinemaMovieTime_watchtime) {
         return cinemaMovieTimeService.getCinemaMovieTimeListByMovieIdAndDate(movie_id, cinemaMovieTime_watchtime);
     }
 

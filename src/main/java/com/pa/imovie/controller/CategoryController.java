@@ -1,11 +1,11 @@
 package com.pa.imovie.controller;
 
 import com.pa.imovie.dto.CategoryMovieInfo;
+import com.pa.imovie.dto.CategoryMoviePageInfo;
 import com.pa.imovie.entity.Category;
 import com.pa.imovie.service.CategoryService;
 import com.pa.imovie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,12 +26,12 @@ public class CategoryController {
     }
 
     @GetMapping(path = "/{category_id}", params = {"page", "pageSize"})
-    public List<CategoryMovieInfo> getAllMovieByCategory(@PathVariable Integer category_id, @RequestParam Integer page, @RequestParam Integer pageSize) {
+    public CategoryMoviePageInfo getAllMovieByCategory(@PathVariable Integer category_id, @RequestParam Integer page, @RequestParam Integer pageSize) {
         return categoryService.getAllMovieByCategory(category_id, page, pageSize);
     }
 
     @GetMapping(params = {"page", "pageSize"})
-    public List<CategoryMovieInfo> getAllMovieLimited(@RequestParam Integer page, @RequestParam Integer pageSize){
+    public CategoryMoviePageInfo getAllMovieLimited(@RequestParam Integer page, @RequestParam Integer pageSize){
         return movieService.getAllMovieLimited(page, pageSize);
     }
 

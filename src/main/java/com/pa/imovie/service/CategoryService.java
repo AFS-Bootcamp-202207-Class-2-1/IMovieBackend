@@ -1,5 +1,6 @@
 package com.pa.imovie.service;
 
+import com.pa.imovie.dto.CategoryMoviePageInfo;
 import com.pa.imovie.dto.CategoryMovieInfo;
 import com.pa.imovie.entity.Category;
 import com.pa.imovie.entity.Movie;
@@ -30,7 +31,8 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
-    public List<CategoryMovieInfo> getAllMovieByCategory(Integer category_id, Integer page, Integer pageSize) {
+    public CategoryMoviePageInfo getAllMovieByCategory(Integer category_id, Integer page, Integer pageSize) {
+        List<MovieCategory> allMovieCategoryList = movieCategoryRepository.findByCategoryId(category_id);
         PageRequest pageRequest = PageRequest.of(page - 1, pageSize);
         List<MovieCategory> movieCategoryList = movieCategoryRepository.findByCategoryId(category_id, pageRequest);
         List<CategoryMovieInfo> movieList = new ArrayList<>();
@@ -38,7 +40,7 @@ public class CategoryService {
             Movie movie = movieRepository.findById(movieCategory.getMovieId()).get();
             movieList.add(new CategoryMovieInfo(movie.getMovieId(), movie.getMovieName(), movie.getMovieImage(), movie.getMovieScore()));
         }
-        return movieList;
+        return new CategoryMoviePageInfo(allMovieCategoryList.size(), movieList);
     }
 
 
