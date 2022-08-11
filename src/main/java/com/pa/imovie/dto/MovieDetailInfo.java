@@ -19,12 +19,12 @@ public class MovieDetailInfo {
     private Double movieScore;
     private List<CinemaMovie> cinemaMovies;
     private List<DetailImage> detailImages;
-    private List<CommentInfo> comments;
+    private List<CommentDetailInfo> comments;
 
     public MovieDetailInfo() {
     }
 
-    public MovieDetailInfo(Integer movieId, String movieName, String movieImage, String movieCatagory, String moviePerformers, String movieIntroduce, String movieReleasetime, String movieVersion, Integer movieTime, Double movieScore, List<CinemaMovie> cinemaMovies, List<DetailImage> detailImages, List<CommentInfo> comments) {
+    public MovieDetailInfo(Integer movieId, String movieName, String movieImage, String movieCatagory, String moviePerformers, String movieIntroduce, String movieReleasetime, String movieVersion, Integer movieTime, Double movieScore, List<CinemaMovie> cinemaMovies, List<DetailImage> detailImages, List<CommentDetailInfo> comments) {
         this.movieId = movieId;
         this.movieName = movieName;
         this.movieImage = movieImage;
@@ -136,11 +136,11 @@ public class MovieDetailInfo {
         this.detailImages = detailImages;
     }
 
-    public List<CommentInfo> getComments() {
+    public List<CommentDetailInfo> getComments() {
         return comments;
     }
 
-    public void setComments(List<CommentInfo> comments) {
+    public void setComments(List<CommentDetailInfo> comments) {
         this.comments = comments;
     }
 }

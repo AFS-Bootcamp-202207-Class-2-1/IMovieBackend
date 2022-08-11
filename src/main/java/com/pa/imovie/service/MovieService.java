@@ -26,10 +26,10 @@ public class MovieService {
 
     public MovieDetailInfo getMovieById(Integer movie_id) {
         Movie movie = movieRepository.findById(movie_id).get();
-        List<CommentInfo> commentInfoList = new ArrayList<>();
+        List<CommentDetailInfo> commentInfoList = new ArrayList<>();
         for (Comment comment : movie.getComments()) {
             Users users = usersRepository.findById(comment.getUsersId()).get();
-            commentInfoList.add(new CommentInfo(comment.getCommentId(), comment.getCommentTime(), comment.getCommentContent(), users));
+            commentInfoList.add(new CommentDetailInfo(comment.getCommentId(), comment.getCommentTime(), comment.getCommentContent(), users));
         }
         return new MovieDetailInfo(movie.getMovieId(), movie.getMovieName(), movie.getMovieImage(), movie.getMovieCatagory(), movie.getMoviePerformers(), movie.getMovieIntroduce(), movie.getMovieReleasetime(), movie.getMovieVersion(), movie.getMovieTime(), movie.getMovieScore(), movie.getCinemaMovies(), movie.getDetailImages(), commentInfoList);
     }
