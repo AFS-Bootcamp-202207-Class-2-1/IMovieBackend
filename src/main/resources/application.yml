@@ -1,6 +1,6 @@
 server:
   # please don't modify it if you don't know what you are doing
-  port: ${PORT:8080}
+  port: ${PORT:8083}
 
 spring:
   datasource:

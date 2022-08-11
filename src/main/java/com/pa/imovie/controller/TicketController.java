@@ -4,6 +4,7 @@ import com.pa.imovie.dto.TicketOrderInfo;
 import com.pa.imovie.service.OrderService;
 import com.pa.imovie.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
