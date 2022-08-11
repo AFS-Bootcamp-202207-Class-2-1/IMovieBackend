@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class OrderService {
@@ -65,6 +62,7 @@ public class OrderService {
             }
             ticketOrderInfoList.add(new TicketOrderInfo(movie.getMovieId(), ticket.getTicketId(), movie.getMovieImage(), movie.getMovieName(), ticket.getTicketBuytime(), ticket.getTicketUuid(), ticket.getTicketPrice(), cinema.getCinemaAddress(), cinema.getCinemaName(), cinemaMovieTime.getCinemaMovieTimeWatchtime(), seatret));
         }
+        Collections.reverse(ticketOrderInfoList);
         return ticketOrderInfoList;
     }
 }
