@@ -17,7 +17,9 @@ public class CommentService {
 
     static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
-    public Comment addComment(CommentInfo commentInfo) {
-        return commentRepository.save(new Comment(0,sdf.format(new Date()),commentInfo.getCommentContent(),commentInfo.getUsersId(),commentInfo.getMovieId()));
+    public String addComment(CommentInfo commentInfo) {
+        commentRepository.save(new Comment(0,sdf.format(new Date()),commentInfo.getCommentContent(),commentInfo.getUsersId(),commentInfo.getMovieId()));
+        return "add comment successfully";
+
     }
 }

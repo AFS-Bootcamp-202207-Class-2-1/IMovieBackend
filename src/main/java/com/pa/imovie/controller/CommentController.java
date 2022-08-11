@@ -22,7 +22,7 @@ public class CommentController {
 
 
     @PostMapping("addComment")
-    public Comment addComment (@RequestBody CommentInfo commentInfo){
+    public String addComment (@RequestBody CommentInfo commentInfo){
         return commentService.addComment(commentInfo);
     }
 
