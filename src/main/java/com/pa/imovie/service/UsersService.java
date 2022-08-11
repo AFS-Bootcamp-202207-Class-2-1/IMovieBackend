@@ -27,7 +27,7 @@ public class UsersService {
             msg = "registered successfully";
             return msg;
         }
-        msg = "the user alrealy exists";
+        msg = "the user already exists";
         return msg;
     }
 

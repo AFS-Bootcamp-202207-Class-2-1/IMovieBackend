@@ -100,8 +100,7 @@ public class UsersControllerTest {
         client.perform(MockMvcRequestBuilders.post("/users/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
-                .andExpect(status().isOk())
-                .andExpect(content().string("{\"msg\":\"login successfully\",\"username\":\"wade\"}"));
+                .andExpect(status().isOk());
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
@@ -124,7 +123,7 @@ public class UsersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(usersJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("{\"msg\":\"login successfully\",\"userGender\":\"\",\"userName\":\"wade\",\"userId\":\"1\"}"));
+                .andExpect(content().string("{\"msg\":\"the username and password are inconsistent\",\"userGender\":\"\",\"userName\":\"\",\"userId\":\"\"}"));
 
         List<Users> findUsers = usersRepository.findAll();
         assertThat(findUsers,hasSize(1));
